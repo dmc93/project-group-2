@@ -39,6 +39,11 @@
       "id": "b24e",
       "firstname": "Mary",
       "surname": "Berry"
+    },
+    {
+      "id": "e489",
+      "firstname": "David",
+      "surname": "McManus"
     }
   ],
   "properties": [
@@ -68,7 +73,7 @@
     },
     {
       "id": "132",
-      "sellerId": null,
+      "sellerId": "a5a6",
       "street": "Crescent Lane",
       "town": "London",
       "bedrooms": 3,
@@ -305,6 +310,18 @@
       "garden": "Yes",
       "status": "For Sale",
       "imageUrl": "https://th.bing.com/th/id/OIP.hjFcGdvdGjYZQKvJvMns9QHaHa?rs=1&pid=ImgDetMain"
+    },
+    {
+      "id": "adda",
+      "sellerId": "d407",
+      "street": "Bank Street",
+      "town": "Haddington",
+      "price": 250000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "garden": "Yes",
+      "status": "Sold",
+      "imageUrl": "https://images.pexels.com/photos/3555615/pexels-photo-3555615.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
     }
   ],
   "sellers": [
@@ -342,6 +359,11 @@
       "id": "a5a6",
       "firstname": "Professor",
       "surname": "McGonagall"
+    },
+    {
+      "id": "d407",
+      "firstname": "David",
+      "surname": "McManus"
     }
   ],
   "appointments": [
@@ -425,6 +447,15 @@
       "propertyId": "6240",
       "date": "2024-06-08",
       "timeSlot": "10:00-11:00"
+    },
+    {
+      "id": "9c24",
+      "buyerId": "e489",
+      "firstName": "David",
+      "surname": "McManus",
+      "propertyId": "6240",
+      "date": "2024-06-08",
+      "timeSlot": "12:00-13:00"
     }
   ]
 }
