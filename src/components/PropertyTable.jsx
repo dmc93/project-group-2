@@ -12,13 +12,13 @@ function PropertyDisplay() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
-    const handlePasswordSubmit = (password) => {
-        if (password === 'Password') {
-            setIsAuthenticated(true);
-        } else {
-            setShowAlert(true);
-        }
-    };
+//     const handlePasswordSubmit = (password) => {
+//         if (password === 'Password') {
+//             setIsAuthenticated(true);
+//         } else {
+//             setShowAlert(true);
+//         }
+//     };
     useEffect(() => {
 
         fetch('http://localhost:8889/properties')
@@ -49,18 +49,18 @@ function PropertyDisplay() {
 
     return (
         <div>
-            {!isAuthenticated && (
+{/*             {!isAuthenticated && ( */}
                 <div>
-                    <PasswordInput onSubmit={handlePasswordSubmit} />
-                    {showAlert && (
-                        <CustomAlert
-                            message="Incorrect password. Please try again."
-                            onClose={() => setShowAlert(false)} // Close the alert when clicked
-                        />
-                    )}
+{/*                     <PasswordInput onSubmit={handlePasswordSubmit} /> */}
+{/*                     {showAlert && ( */}
+{/*                         <CustomAlert */}
+{/*                             message="Incorrect password. Please try again." */}
+{/*                             onClose={() => setShowAlert(false)} // Close the alert when clicked */}
+{/*                         /> */}
+{/*                     )} */}
                 </div>
-            )}
-            {isAuthenticated && (
+{/*             )} */}
+{/*             {isAuthenticated && ( */}
 
                 <div className='table-container'>
                     <br></br>
