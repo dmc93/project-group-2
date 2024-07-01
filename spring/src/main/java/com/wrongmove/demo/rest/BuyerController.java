@@ -19,29 +19,29 @@ public class BuyerController {
     }
 
     @GetMapping("buyer/get/all")
-    public List<BuyerDto> getAll () {
-        return this.service.getAll();
+    public List<BuyerDto> getAllBuyers () {
+        return service.getAll();
     }
 
     @GetMapping("buyer/get/{id}")
-    public ResponseEntity<?> get (@PathVariable Integer id) {
-        return.this.service.getBuyer(id);
+    public ResponseEntity<?> getBuyerById (@PathVariable Integer id) {
+        return service.getBuyer(id);
     }
 
-    @PostMapping("buyer/create")
+    @PostMapping("buyer/add")
     public ResponseEntity<BuyerDto> createBuyer(@RequestBody Buyer newBuyer){
-        return this.service.createBuyer(newBuyer);
+        return service.createBuyer(newBuyer);
     }
 
-    @DeleteMapping('buyer/remove/{id}')
+    @DeleteMapping("buyer/remove/{id}")
     public ResponseEntity<?> removeBuyer(@PathVariable Integer id) {
-        return this.service.removeBuyer(id);
+        return service.removeBuyer(id);
     }
 
     @PatchMapping("buyer/update/{id}")
     public ResponseEntity<?> updateBuyer(@PathVariable Integer id,
                                          @RequestParam(required = false) String firstname,
-                                         @RequestParam(required = false) String lastname) {
-        return this.service.updateBuyer(id, firstname, lastname);
+                                         @RequestParam(required = false) String surname) {
+        return service.updateBuyer(id, firstname, surname);
     }
 }
