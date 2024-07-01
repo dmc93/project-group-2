@@ -7,18 +7,18 @@ import PasswordInput from '../components/PasswordInput';
 
 function AddBuyers() {
     // Define state variables for authentication and alert
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+   // const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
 
     // Define function to handle password submission
-    const handlePasswordSubmit = (password) => {
-        // Check if the password is correct
-        if (password === 'Password') {
-            setIsAuthenticated(true); // Set isAuthenticated to true
-        } else {
-            setShowAlert(true); // Show alert if the password is incorrect
-        }
-    };
+    // const handlePasswordSubmit = (password) => {
+    //     // Check if the password is correct
+    //     if (password === 'Password') {
+    //         setIsAuthenticated(true); // Set isAuthenticated to true
+    //     } else {
+    //         setShowAlert(true); // Show alert if the password is incorrect
+    //     }
+    // };
 
     return (
         <div className="body">
@@ -26,7 +26,7 @@ function AddBuyers() {
             <h1 className="pagetitle">Register a New Buyer</h1>
                 <AddBuyer />
                 {/* Render PasswordInput component and pass handlePasswordSubmit as onSubmit prop */}
-                {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />}
+                {/* {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />} */}
                 {/* Render CustomAlert component if showAlert is true */}
                 {showAlert && (
                     <CustomAlert
@@ -35,7 +35,7 @@ function AddBuyers() {
                     />
                 )}
                 {/* Render JsonDataDisplay component if isAuthenticated is true */}
-                {isAuthenticated && <JsonDataDisplay />}
+                {/* {isAuthenticated && */} <JsonDataDisplay />
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ function PropSeller() {
     const [userProperties, setUserProperties] = useState([])
     useEffect(() => {
 
-        axios.get(`http://localhost:8888/properties?sellerId=${params.sellerId}`)
+        axios.get(`http://localhost:8889/properties?sellerId=${params.sellerId}`)
         .then((response) => response.data)
         .then((data) => { setUserProperties(data); })
         .then(() => console.log(userProperties))

@@ -21,7 +21,7 @@ function PropertyDisplay() {
     };
     useEffect(() => {
 
-        fetch('http://localhost:8888/properties')
+        fetch('http://localhost:8889/properties')
             .then((response) => response.json())
             .then((data) => { setProperties(data) })
             .catch((error) => console.error('Error:', error));

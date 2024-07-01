@@ -11,7 +11,7 @@ function JsonDataDisplay() {
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
     useEffect(() => {
-        fetch('http://localhost:8888/buyers')
+        fetch('http://localhost:8889/buyers')
             .then((response) => response.json())
             .then((data) => { setBuyers(data) })
             .catch((error) => console.error('Error:', error));
@@ -29,7 +29,7 @@ function JsonDataDisplay() {
 
     const handleConfirm = async () => {
         try {
-            const response = await fetch(`http://localhost:8888/buyers/${buyerIdToDelete}`, {
+            const response = await fetch(`http://localhost:8889/buyers/${buyerIdToDelete}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
