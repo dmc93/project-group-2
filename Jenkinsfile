@@ -15,6 +15,7 @@ pipeline {
             bat '''
             pm2 delete all
             '''
+        
 
 
 
