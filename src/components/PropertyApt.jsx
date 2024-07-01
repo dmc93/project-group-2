@@ -39,7 +39,7 @@ const BookAppointment = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8888/properties/" + params.id)
+      .get("http://localhost:8889/properties/" + params.id)
       .then((res) => {
         setPropertyId(res.data.id);
         setDetails(res.data);
@@ -58,7 +58,7 @@ const BookAppointment = () => {
 
     if (buyerId) {
       try {
-        const response = await fetch("http://localhost:8888/buyers");
+        const response = await fetch("http://localhost:8889/buyers");
         const userData = await response.json();
         const userExists = userData.find((buyer) => buyer.id === buyerId);
         if (userExists) {
@@ -76,7 +76,7 @@ const BookAppointment = () => {
     e.preventDefault();
     // Fetch propertys data
     try {
-      const response = await fetch("http://localhost:8888/buyers");
+      const response = await fetch("http://localhost:8889/buyers");
       const buyersData = await response.json();
 
       // Check if property ID exists
@@ -93,7 +93,7 @@ const BookAppointment = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8888/properties");
+      const response = await fetch("http://localhost:8889/properties");
       const propertysData = await response.json();
 
       // Check if property ID exists
@@ -112,7 +112,7 @@ const BookAppointment = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8888/appointments");
+      const response = await fetch("http://localhost:8889/appointments");
       const bookingData = await response.json();
 
       // Check if the appointment exists for the specified date and time slot
@@ -147,7 +147,7 @@ const BookAppointment = () => {
       timeSlot,
     };
     const appointmentResponse = await fetch(
-      "http://localhost:8888/appointments",
+      "http://localhost:8889/appointments",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

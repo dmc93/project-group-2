@@ -31,7 +31,7 @@ const BookAppointment = () => {
   // Fetch buyer details based on the entered Buyer ID and populate the form
   const handlePopulate = async () => {
     try {
-      const response = await fetch("http://localhost:8888/buyers");
+      const response = await fetch("http://localhost:8889/buyers");
       const userData = await response.json();
       const userExists = userData.find((buyer) => buyer.id === buyerId);
       if (userExists) {
@@ -54,7 +54,7 @@ const BookAppointment = () => {
     if (propertyId === '') return;
 
     try {
-      const response = await fetch("http://localhost:8888/properties");
+      const response = await fetch("http://localhost:8889/properties");
       const propertiesData = await response.json();
       const propertyExists = propertiesData.some((property) => property.id === propertyId);
 
@@ -96,7 +96,7 @@ const BookAppointment = () => {
 
     // Fetch appointments data and check if the selected time slot is available
     try {
-      const response = await fetch("http://localhost:8888/appointments");
+      const response = await fetch("http://localhost:8889/appointments");
       const bookingData = await response.json();
       const appointmentExists = bookingData.some(
         (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeSlot === timeSlot
@@ -113,7 +113,7 @@ const BookAppointment = () => {
     // Proceed with booking the appointment
     const appointment = { buyerId, firstName, surname, propertyId, date, timeSlot };
     try {
-      const appointmentResponse = await fetch('http://localhost:8888/appointments', {
+      const appointmentResponse = await fetch('http://localhost:8889/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(appointment)

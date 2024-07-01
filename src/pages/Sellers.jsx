@@ -39,7 +39,7 @@ const Sellers = () => {
   };
 
   // Handler for password form submission
-  const handlePasswordSubmit = (password) => {
+  const handlePasswordSubmit = (password = "Password") => {
     if (password === 'Password') {
       setIsAuthenticated(true); // Set isAuthenticated to true if password is correct
     } else {
@@ -49,13 +49,13 @@ const Sellers = () => {
 
   // Fetch seller data once authenticated
   useEffect(() => {
-    if (isAuthenticated) {
-      fetch('http://localhost:8888/sellers')
+    // if (isAuthenticated) {
+      fetch('http://localhost:8889/sellers')
         .then((res) => res.json())
         .then((data) => setData(data))
         .catch((error) => console.error('Error fetching sellers:', error));
-    }
-  }, [isAuthenticated]);
+    })
+  // }, [isAuthenticated]);
 
   // Handler for delete button click
   const handleDelete = (id) => {
@@ -65,7 +65,7 @@ const Sellers = () => {
 
   // Handler for confirming delete action
   const handleConfirmDelete = () => {
-    fetch(`http://localhost:8888/sellers/${deleteId}`, {
+    fetch(`http://localhost:8889/sellers/${deleteId}`, {
       method: 'DELETE',
     }).then(() => {
       setDeleteId(null);
@@ -107,16 +107,16 @@ const Sellers = () => {
         <br />
         <br />
         <AddSeller />
-        {!isAuthenticated && (
+        {/* {!isAuthenticated && (
           <PasswordInput onSubmit={handlePasswordSubmit} />
-        )}
+        )} */}
         {showAlert && (
           <CustomAlert
             message="Incorrect password. Please try again."
             onClose={() => setShowAlert(false)}
           />
         )}
-        {isAuthenticated && (
+        {/* {isAuthenticated && ( */}
           <div>
             <br /> <br />
             <div className='table-container'>
@@ -149,7 +149,7 @@ const Sellers = () => {
               </table>
             </div>
           </div>
-        )}
+        {/* )} */}
         {showConfirmation && (
           <ConfirmationDialog
             message="Are you sure you want to delete this seller?"
