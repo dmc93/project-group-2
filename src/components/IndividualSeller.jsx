@@ -1,67 +1,70 @@
-
 import { useState, useEffect } from 'react';
-import '../css/RegisterUser.css'
-import { useNavigate } from 'react-router-dom';
+import '../css/RegisterUser.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+function Propseller() {
+    const params = useParams();
+    const [userAppointments, setUserAppointments] = useState([]);
 
-function PropSeller() {
-    const params = useParams()
-    const navigate = useNavigate()
-    const [userProperties, setUserProperties] = useState([])
     useEffect(() => {
+        axios.get(`http://localhost:8889/appointments?sellerId=${params.sellerId}`)
+            .then((response) => response.data)
+            .then((data) => {
+                setUserAppointments(data);
+                console.log(data);
+            })
+            .catch((error) => console.error('Error:', error));
+    }, [params.sellerId]);
 
-        axios.get(`http://localhost:8888/properties?sellerId=${params.sellerId}`)
-        .then((response) => response.data)
-        .then((data) => { setUserProperties(data); })
-        .then(() => console.log(userProperties))
-        .catch((error) => console.error('Error:', error));
-
-    }, [userProperties]);
+    const handleDelete = (e, id) => {
+        e.preventDefault();
+        axios.delete(`http://localhost:8889/appointments/${id}`)
+            .then(() => {
+                setUserAppointments(userAppointments.filter(appoint => appoint.id !== id));
+            })
+            .catch((error) => console.error('Error:', error));
+    };
 
     return (
         <div>
-            <br></br>
-            <br></br>
-            <h1 className="pagetitle">Seller's Property Listings</h1>
-            <br />
+            <br /> <br />
+            <h1 className="pagetitle">Booked Appointments</h1>
+            <br /><br />
             <div className='table-container'>
-                <table >
+                <table>
                     <thead>
-                        <th>Property ID</th>
-                        <th>Street</th>
-                        <th>Town</th>
-                        <th>Bedrooms</th>
-                        <th>Bathrooms</th>
-                        <th>Price </th>
-
-                        <th>Status</th>
-                        <th>Update Property Details</th>
+                        <tr>
+                            <th>Booking ID</th>
+                            <th>Seller ID</th>
+                            <th>First Name</th>
+                            <th>Surname</th>
+                            <th>Property ID</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
-                        {
-                            userProperties.map((info) => (
-                                <tr key={info.sellerId}>
-                                    <td>{info.id}</td>
-                                    <td>{info.street}</td>
-                                    <td>{info.town}</td>
-                                    <td>{info.bedrooms}</td>
-                                    <td>{info.bathrooms}</td>
-                                    <td>{info.price}</td>
-
-                                    <td>{info.status}</td>
-                                    <td><button onClick={() => navigate("/update/" + info.id)} className="delete-btn"> Update Property </button></td>
-                                </tr>
-                            ))
-                        }
+                        {userAppointments && userAppointments.map((appoint) => (
+                            <tr key={appoint.id}>
+                                <td>{appoint.id}</td>
+                                <td>{appoint.sellerId}</td>
+                                <td>{appoint.firstName}</td>
+                                <td>{appoint.surname}</td>
+                                <td>{appoint.propertyId}</td>
+                                <td>{appoint.date}</td>
+                                <td>{appoint.timeSlot}</td>
+                                <td>
+                                    <button className="delete-btn" onClick={(e) => handleDelete(e, appoint.id)}>Cancel</button>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default PropSeller;
-
+export default Propseller;

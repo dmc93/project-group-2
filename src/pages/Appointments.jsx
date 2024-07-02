@@ -28,7 +28,7 @@ const Appointments = () => {
   //this is how we are going to use the id
   const [deleteId, setDeleteId] = useState('')
   //this is our data call, using the useFetch function containing the useEffect
-  const [data] = useFetch('http://localhost:8888/appointments')
+  const [data] = useFetch('http://localhost:8889/appointments')
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
@@ -39,7 +39,7 @@ const Appointments = () => {
   }
 
   const handleConfirmDelete = () => {
-    fetch(`http://localhost:8888/appointments/${deleteId}`, {
+    fetch(`http://localhost:8889/appointments/${deleteId}`, {
       method: 'DELETE',
     }).then(() => {
       setDeleteId(null);
@@ -53,15 +53,15 @@ const Appointments = () => {
     setShowConfirmation(false);
   }
 
-  // Define function to handle password submission
-  const handlePasswordSubmit = (password) => {
-    // Check if the password is correct
-    if (password === 'Password') {
-      setIsAuthenticated(true); // Set isAuthenticated to true
-    } else {
-      setShowAlert(true); // Show alert if the password is incorrect
-    }
-  };
+  // // Define function to handle password submission
+  // const handlePasswordSubmit = (password = "Password") => {
+  //   // Check if the password is correct
+  //   if (password === 'Password') {
+  //     setIsAuthenticated(true); // Set isAuthenticated to true
+  //   } else {
+  //     setShowAlert(true); // Show alert if the password is incorrect
+  //   }
+  // };
 
   const [showConfirmation, setShowConfirmation] = useState(false)
 
@@ -71,18 +71,12 @@ const Appointments = () => {
         <h1 className="pagetitle">Book Appointment</h1>
         <BookAppointment />
 
+{/* 
+        {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />}   */}
 
-        {!isAuthenticated && <PasswordInput onSubmit={handlePasswordSubmit} />}
-        {/* Render CustomAlert component if showAlert is true */}
-        {showAlert && (
-          <CustomAlert
-            message="Incorrect password. Please try again."
-            onClose={() => setShowAlert(false)} // Close the alert
-          />
-        )}
         <br></br>
         <br></br>
-        {isAuthenticated && (
+        
           <div>
             <br /> <br />
             <div className='table-container'>
@@ -100,7 +94,7 @@ const Appointments = () => {
                 <tbody>
                   {data && data.map((appoint) => (
                     <tr>
-                      {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url) */}
+                      {/* We are setting the deleteId (The one we use in our handleDelete function to input the id directly at the end of the url)
                       {/* We are extracting the value from the data on the page so we cant make a mistake */}
                       <td >{appoint.id}</td>
                       <td>{appoint.buyerId}</td>
@@ -118,7 +112,7 @@ const Appointments = () => {
               </table>
             </div>
           </div>
-        )}
+        
         {showConfirmation && (
           <ConfirmationDialog
             message="Are you sure you want to cancel this Appointment?"

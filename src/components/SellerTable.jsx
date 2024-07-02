@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 function JsonDataDisplay() {
     const navigate = useNavigate();
     const [showConfirmation, setShowConfirmation] = useState(false);
-    const [buyers, setBuyers] = useState([]);
-    const [buyerIdToDelete, setBuyerIdToDelete] = useState(null);
+    const [sellers, setSellers] = useState([]);
+    const [sellerIdToDelete, setSellerIdToDelete] = useState(null);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
     useEffect(() => {
@@ -17,41 +17,41 @@ function JsonDataDisplay() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:4495/buyer/get/all');
-            setBuyers(response.data);
+            const response = await axios.get('http://localhost:4495/seller/get/all');
+            setSellers(response.data);
         } catch (error) {
             console.error('Error:', error);
         }
     };
 
     const handleDelete = (id) => {
-        setBuyerIdToDelete(id);
+        setSellerIdToDelete(id);
         setShowConfirmation(true);
     };
 
     const handleCancel = () => {
         setShowConfirmation(false);
-        setBuyerIdToDelete(null);
+        setSellerIdToDelete(null);
     };
 
     const handleConfirm = async () => {
         try {
-            const response = await axios.delete(`http://localhost:4495/buyer/remove/${buyerIdToDelete}`);
+            const response = await axios.delete(`http://localhost:4495/seller/remove/${sellerIdToDelete}`);
             if (response.status === 200) {
-                setBuyers((prevBuyers) => prevBuyers.filter((buyer) => buyer.id !== buyerIdToDelete));
-                console.log(`Buyer with ID ${buyerIdToDelete} successfully deleted.`);
+                setSellers((prevSellers) => prevSellers.filter((seller) => seller.id !== sellerIdToDelete));
+                console.log(`Seller with ID ${sellerIdToDelete} successfully deleted.`);
             } else {
-                console.error('Failed to delete the buyer with ID:', buyerIdToDelete);
+                console.error('Failed to delete the seller with ID:', sellerIdToDelete);
             }
         } catch (error) {
             console.error('Error during deletion:', error);
         } finally {
             setShowConfirmation(false);
-            setBuyerIdToDelete(null);
+            setSellerIdToDelete(null);
         }
     };
 
-    const sortedBuyers = [...buyers].sort((a, b) => {
+    const sortedSellers = [...sellers].sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
             return sortConfig.direction === 'ascending' ? -1 : 1;
         }
@@ -76,14 +76,14 @@ function JsonDataDisplay() {
                 <table>
                     <thead>
                         <tr>
-                            <th onClick={() => requestSort('id')}>Buyers ID ↑ ↓</th>
+                            <th onClick={() => requestSort('id')}>Sellers ID ↑ ↓</th>
                             <th onClick={() => requestSort('firstname')}>First Name ↑ ↓</th>
                             <th onClick={() => requestSort('surname')}>Surname ↑ ↓</th>
-                            <th>Delete Buyer</th>
+                            <th>Delete Seller</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {sortedBuyers.map((info) => (
+                        {sortedSellers.map((info) => (
                             <tr key={info.id}>
                                 <td onClick={() => navigate('../appointments/' + info.id)}>{info.id}</td>
                                 <td>{info.firstname}</td>
@@ -98,7 +98,7 @@ function JsonDataDisplay() {
             </div>
             {showConfirmation && (
                 <ConfirmationDialog
-                    message="Are you sure you want to delete this buyer?"
+                    message="Are you sure you want to delete this seller?"
                     onConfirm={handleConfirm}
                     onCancel={handleCancel}
                 />
