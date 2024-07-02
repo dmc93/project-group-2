@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="Updated buyer">
-      <change afterPath="$PROJECT_DIR$/src/components/SellerTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddBuyer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddBuyer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddProperty.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProperty.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddSeller.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuyerTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuyerTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Sellers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Sellers.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="Add Buyer and Seller updated" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,12 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1719835792710</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add Buyer and Seller updated">
+      <option name="closed" value="true" />
+      <created>1719918545364</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1719918545364</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added folders" />
     <MESSAGE value="Updated buyer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated buyer" />
+    <MESSAGE value="Add Buyer and Seller updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Buyer and Seller updated" />
   </component>
 </project>
