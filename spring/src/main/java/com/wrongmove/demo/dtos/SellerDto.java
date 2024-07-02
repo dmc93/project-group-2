@@ -1,24 +1,21 @@
-package com.wrongmove.demo.entities;
+package com.wrongmove.demo.dtos;
 
-import jakarta.persistence.*;
+import com.wrongmove.demo.entities.Seller;
 
-@Entity
-public class Buyer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SellerDto {
 
     private Integer id;
-
     private String firstname;
     private String surname;
 
-    public Buyer(){
+    public SellerDto(){
 
     }
 
-    public Buyer(String firstname, String surname) {
-        this.firstname = firstname;
-        this.surname = surname;
+    public SellerDto(Seller seller) {
+        this.id = seller.getId();
+        this.firstname = seller.getFirstname();
+        this.surname = seller.getSurname();
     }
 
     public Integer getId() {
@@ -44,6 +41,4 @@ public class Buyer {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
-
 }

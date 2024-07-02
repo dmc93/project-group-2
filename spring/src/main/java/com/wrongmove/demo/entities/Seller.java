@@ -1,9 +1,12 @@
 package com.wrongmove.demo.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-public class Buyer {
+public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -12,11 +15,11 @@ public class Buyer {
     private String firstname;
     private String surname;
 
-    public Buyer(){
+    public Seller(){
 
     }
 
-    public Buyer(String firstname, String surname) {
+    public Seller(String firstname, String surname) {
         this.firstname = firstname;
         this.surname = surname;
     }
