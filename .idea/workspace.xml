@@ -5,19 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="Updated buyer">
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/SellerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Seller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/repos/SellerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/SellerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/SellerTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/BuyerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/BuyerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Buyer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/BuyerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/BuyerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddBuyer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddBuyer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddProperty.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddProperty.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddSeller.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BuyerTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuyerTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Sellers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Sellers.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,18 +39,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "sparku7"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;sparku7&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/dmc93/project-group-2.git",
-    "accountId": "e9557099-53bf-4ec6-81b1-2b3b13f9f271"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/dmc93/project-group-2.git&quot;,
+    &quot;accountId&quot;: &quot;e9557099-53bf-4ec6-81b1-2b3b13f9f271&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -67,11 +66,14 @@
     "git-widget-placeholder": "mark",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/Desktop/Wrong Move Project/project-group-2",
+    "last_opened_file_path": "C:/Users/User/Desktop/Wrong Move Project/project-group-2/src/components",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\Wrong Move Project\project-group-2\src\components" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wrongmove.demo.services" />
       <recent name="com.wrongmove.demo.rest" />

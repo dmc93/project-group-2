@@ -1,37 +1,31 @@
 import { useState } from "react";
+import axios from 'axios';
 import '../css/RegisterUser.css';
 import CustomAlert from "./CustomAlert";
 
-// AddBuyer component allows users to add new buyer information to the system
 const AddBuyer = () => {
-    // State hooks to store the input values for the first name and surname
     const [firstname, setFirstName] = useState('');
     const [surname, setSurname] = useState('');
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
 
     // Function to convert names to title case
-
     const toTitleCase = (name) => {
         return name.split(' ').map((word) => {
             if (/^mc/i.test(word)) {
-                // Capitalize the first letter and the second letter after 'Mc'
                 return word.charAt(0).toUpperCase() + 'c' + word.charAt(2).toUpperCase() + word.slice(3).toLowerCase();
             } else if (/^mac/i.test(word)) {
-                // Capitalize the first letter and the letter following 'Mac'
                 return word.charAt(0).toUpperCase() + 'ac' + word.charAt(3).toUpperCase() + word.slice(4).toLowerCase();
             } else {
-                // Capitalize the first letter of other words
                 return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
             }
         }).join(' ');
-
     };
+
     const firstToTitleCase = (name) => {
         return name.split(' ').map((word) => {
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }
-        ).join(' ');
+        }).join(' ');
     };
 
     // Function to handle the form submission
@@ -49,12 +43,9 @@ const AddBuyer = () => {
         };
 
         try {
-
-
             // Check if the combination already exists
-            const checkResponse = await fetch(`http://localhost:8889/buyers?firstname=${titleCaseFirstName}&surname=${titleCaseSurname}`);
-            const existingData = await checkResponse.json();
-
+            const checkResponse = await axios.get(`http://localhost:4495/buyer/get/all`);
+            const existingData = checkResponse.data;
 
             const dataExists = existingData.some(data =>
                 data.firstname === titleCaseFirstName &&
@@ -67,23 +58,19 @@ const AddBuyer = () => {
                 return;
             }
 
-            // Sends a POST request to the server to add the new buyer
-            const postResponse = await fetch('http://localhost:8889/buyers', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(user)
-            });
+            // Send a POST request to add the new buyer
+            const postResponse = await axios.post('http://localhost:4495/buyer/add', user);
+            const data = postResponse.data;
 
-            const data = await postResponse.json();
             setAlertMessage(`New Buyer Added. Your Unique ID is ${data.id}`);
             setShowAlert(true);
 
-            setFirstName(''); // Resets the firstname state to an empty string
-            setSurname(''); // Resets the surname state to an empty string
+            setFirstName('');
+            setSurname('');
         } catch (error) {
             console.error('Error:', error);
         }
-    }
+    };
 
     return (
         <div>
@@ -92,37 +79,42 @@ const AddBuyer = () => {
                 <br></br>
 
                 <label className="label1">First Name: </label>
-                <input className="input1" type="text"
-                    required // Makes the field required for form submission
-                    value={firstname} // Binds the input value to the firstname state
-                    onChange={(e) => setFirstName(e.target.value)} // Updates the state on input change
+                <input
+                    className="input1"
+                    type="text"
+                    required
+                    value={firstname}
+                    onChange={(e) => setFirstName(e.target.value)}
                 />
                 <br></br>
                 <br></br>
 
                 <label className="label1">Surname: </label>
-                <input className="input1" type="text"
-                    required // Makes the field required for form submission
-                    value={surname} // Binds the input value to the surname state
-                    onChange={(e) => setSurname(e.target.value)} // Updates the state on input change
+                <input
+                    className="input1"
+                    type="text"
+                    required
+                    value={surname}
+                    onChange={(e) => setSurname(e.target.value)}
                 />
                 <br></br>
                 <br></br>
 
                 <button className="button1"> Add Buyer</button>
+
                 {showAlert && (
                     <CustomAlert
                         message={alertMessage}
                         onClose={() => {
-                            setShowAlert(false); // Close the alert
-                            window.location.reload(); // Reload the page after closing the alert
+                            setShowAlert(false);
+                            window.location.reload();
                         }}
                     />
                 )}
 
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default AddBuyer;

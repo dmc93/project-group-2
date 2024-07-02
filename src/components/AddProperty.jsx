@@ -3,7 +3,6 @@ import { useState } from "react";
 import CustomAlert from "./CustomAlert";
 
 
-
 export default function AddProperty() {
 
     const [street, setStreet] = useState('')
