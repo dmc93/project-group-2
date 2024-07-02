@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios';
 import CustomAlert from "./CustomAlert";
 
 
@@ -24,7 +24,7 @@ export default function AddProperty() {
 
         // Fetch sellers data 
         try {
-            const response = await fetch("http://localhost:8888/sellers");
+            const response = await axios.get(`http://localhost:4495/seller/get/all`);
             const sellersData = await response.json();
 
             // Check if seller ID exists
@@ -37,14 +37,8 @@ export default function AddProperty() {
 
             const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, status, imageUrl }
 
-            fetch("http://localhost:8888/properties",
-                {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(task)
-
-                }
-            )
+            const postResponse = await axios.post('http://localhost:4495/property/add', task);
+                        const data = postResponse.data;
 
             setAlertMessage(`Property Added Succesfully`);
             setShowAlert(true);
