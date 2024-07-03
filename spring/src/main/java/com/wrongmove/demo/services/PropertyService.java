@@ -57,7 +57,9 @@ public class PropertyService {
                                    String city,
                                    Integer bedrooms,
                                    Integer bathrooms,
-                                   Boolean hasGarden,
+                                   String hasGarden,
+                                   String state,
+                                   Integer price,
                                    String imageUrl){
 
         Optional<Property> found = this.repo.findById(id);
@@ -72,6 +74,8 @@ public class PropertyService {
         if (bedrooms != null) toUpdate.setBedrooms(bedrooms);
         if (bathrooms != null) toUpdate.setBathrooms(bathrooms);
         if (hasGarden != null) toUpdate.setHasGarden(hasGarden);
+        if (state != null) toUpdate.setState(state);
+        if (price != null) toUpdate.setPrice(price);
         if (imageUrl != null) toUpdate.setImageUrl(imageUrl);
 
         Property updated = this.repo.save(toUpdate);

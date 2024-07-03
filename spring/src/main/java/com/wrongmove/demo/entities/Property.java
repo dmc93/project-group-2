@@ -16,14 +16,18 @@ public class Property {
     private String city;
     private int bedrooms;
     private int bathrooms;
-    private boolean hasGarden;
+    private String hasGarden;
     private String imageUrl;
+    private String state;
+    private int price;
 
     public Property(){
 
     }
 
-    public Property(String imageUrl, boolean hasGarden, int bathrooms, int bedrooms, String city, String address, Integer id) {
+    public Property(int price, String state, String imageUrl, String hasGarden, int bathrooms, int bedrooms, String city, String address, Integer id) {
+        this.price = price;
+        this.state = state;
         this.imageUrl = imageUrl;
         this.hasGarden = hasGarden;
         this.bathrooms = bathrooms;
@@ -73,11 +77,11 @@ public class Property {
         this.bathrooms = bathrooms;
     }
 
-    public boolean isHasGarden() {
+    public String isHasGarden() {
         return hasGarden;
     }
 
-    public void setHasGarden(boolean hasGarden) {
+    public void setHasGarden(String hasGarden) {
         this.hasGarden = hasGarden;
     }
 
@@ -87,5 +91,25 @@ public class Property {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getHasGarden() {
+        return hasGarden;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
