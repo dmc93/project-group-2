@@ -4,7 +4,7 @@ import '../css/PropertyCard.css'
 import { FaBed, FaBath, FaTree } from 'react-icons/fa';
 
 
-export default function ApptPropCard({street, town, bedrooms, bathrooms, price, garden, imageUrl, status}) {
+export default function ApptPropCard({street, town, bedrooms, bathrooms, price, garden, imageUrl, state}) {
 
   
   // Safely handle price formatting
@@ -19,8 +19,8 @@ export default function ApptPropCard({street, town, bedrooms, bathrooms, price, 
 
 
 
-  const getStatusClass = (status) => {
-        switch (status) {
+  const getStatusClass = (state) => {
+        switch (state) {
             case 'For Sale':
               return 'bg-success text-white';
             case 'Withdrawn':
@@ -32,8 +32,8 @@ export default function ApptPropCard({street, town, bedrooms, bathrooms, price, 
         }
     };
 
-    const isButtonDisabled = (status) => {
-        return status === 'Sold' || status === 'Withdrawn';
+    const isButtonDisabled = (state) => {
+        return state === 'Sold' || state === 'Withdrawn';
       };
 
       return (
@@ -46,7 +46,7 @@ export default function ApptPropCard({street, town, bedrooms, bathrooms, price, 
             <div className="card-body">
               <h4 className='street-name'>{town}</h4>
               <h4>{formattedPrice}</h4>
-              <p><span className={`badge ${getStatusClass(status)}`}>{status}</span></p>
+              <p><span className={`badge ${getStatusClass(state)}`}>{state}</span></p>
               <div className="row text-center">
                 <div className="col">
                   <FaBed size={24} />

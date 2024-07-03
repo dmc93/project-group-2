@@ -39,7 +39,7 @@ const BookAppointment = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4495/property/getAll" + params.id)
+      .get("http://localhost:4495/property/" + params.id)
       .then((res) => {
         setPropertyId(res.data.id);
         setDetails(res.data);
@@ -58,12 +58,11 @@ const BookAppointment = () => {
 
     if (buyerId) {
       try {
-        const response = await fetch("http://localhost:4495/buyers/get/all");
+        const response = await fetch("http://localhost:4495/buyer/get/"+buyerId);
         const userData = await response.json();
-        const userExists = userData.find((buyer) => buyer.id === buyerId);
-        if (userExists) {
-          setFirstname(userExists.firstname);
-          setSurname(userExists.surname);
+        if (userData) {
+          setFirstname(userData.firstname);
+          setSurname(userData.surname);
         } else {
           console.log("User not found");
         }
@@ -74,12 +73,12 @@ const BookAppointment = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Fetch propertys data
+  //  Fetch propertys data
     try {
-      const response = await fetch("http://localhost:4495/buyers");
+      const response = await fetch("http://localhost:4495/buyer/get/all");
       const buyersData = await response.json();
 
-      // Check if property ID exists
+  //    Check if property ID exists
       const buyerExists = buyersData.some((buyer) => buyer.id === buyerId);
       if (!buyerExists) {
         setAlertMessage(
@@ -92,24 +91,24 @@ const BookAppointment = () => {
       console.error("Error fetching Buyers data:", error);
     }
 
-    try {
-      const response = await fetch("http://localhost:4495/property/getAll");
-      const propertysData = await response.json();
+    // try {
+    //   const response = await fetch("http://localhost:4495/property/getAll");
+    //   const propertysData = await response.json();
 
-      // Check if property ID exists
-      const propertyExists = propertysData.some(
-        (property) => property.id === propertyId
-      );
-      if (!propertyExists) {
-        setAlertMessage(
-          `Property ID ${propertyId} does not exist. Please enter a valid Property ID`
-        );
-        setShowAlert(true);
-        return;
-      }
-    } catch (error) {
-      console.error("Error fetching propertys data:", error);
-    }
+    //   // Check if property ID exists
+    //   const propertyExists = propertysData.some(
+    //     (property) => property.id === propertyId
+    //   );
+    //   if (!propertyExists) {
+    //     setAlertMessage(
+    //       `Property ID ${propertyId} does not exist. Please enter a valid Property ID`
+    //     );
+    //     setShowAlert(true);
+    //     return;
+    //   }
+    // } catch (error) {
+    //   console.error("Error fetching propertys data:", error);
+    // }
 
     try {
       const response = await fetch("http://localhost:4495/appointments/getAll");
@@ -146,14 +145,16 @@ const BookAppointment = () => {
       date,
       timeSlot,
     };
-    const appointmentResponse = await fetch(
-      "http://localhost:4495/appointments",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(appointments),
-      }
-    );
+    // const appointmentResponse = await fetch(
+    //   "http://localhost:4495/appointments/getAll",
+    //   {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(appointments),
+    //   }
+    // );
+
+    const appointmentResponse = await axios.post('http://localhost:4495/appointments/create', appointments);
 
     const appointmentData = await appointmentResponse.json();
     setAlertMessage(
