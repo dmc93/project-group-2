@@ -4,7 +4,7 @@ import '../css/PropertyCard.css'
 import { FaBed, FaBath, FaTree } from 'react-icons/fa';
 import { useNavigate } from 'react-router';
 
-export default function PropertyCard({propertyKey, street, town, bedrooms, bathrooms, price, garden, imageUrl, status}) {
+export default function PropertyCard({propertyKey, street, town, bedrooms, bathrooms, price, garden, imageUrl, state}) {
 
   const navigate= useNavigate()
   
@@ -20,8 +20,8 @@ export default function PropertyCard({propertyKey, street, town, bedrooms, bathr
 
 
 
-  const getStatusClass = (status) => {
-        switch (status) {
+  const getStatusClass = (state) => {
+        switch (state) {
             case 'For Sale':
               return 'bg-success text-white';
             case 'Withdrawn':
@@ -33,8 +33,8 @@ export default function PropertyCard({propertyKey, street, town, bedrooms, bathr
         }
     };
 
-    const isButtonDisabled = (status) => {
-        return status === 'Sold' || status === 'Withdrawn';
+    const isButtonDisabled = (state) => {
+        return state === 'Sold' || state === 'Withdrawn';
       };
 
       return (
@@ -47,7 +47,7 @@ export default function PropertyCard({propertyKey, street, town, bedrooms, bathr
             <div className="card-body">
               <h4 className='street-name'>{town}</h4>
               <h4>{formattedPrice}</h4>
-              <p><span className={`badge ${getStatusClass(status)}`}>{status}</span></p>
+              <p><span className={`badge ${getStatusClass(state)}`}>{state}</span></p>
               <div className="row text-center">
                 <div className="col">
                   <FaBed size={24} />
@@ -65,9 +65,9 @@ export default function PropertyCard({propertyKey, street, town, bedrooms, bathr
             </div>
             <div className="card-footer text-center">
               <button onClick={() => navigate("/propertyappointment/" + propertyKey)} 
-                 className={`btn ${isButtonDisabled(status) ? 'btn-disabled' : 'btn-custom'} ${onclick}`} 
-                 aria-disabled={isButtonDisabled(status)}>
-                {isButtonDisabled(status) ? 'Not Available' : 'Book Now'}
+                 className={`btn ${isButtonDisabled(state) ? 'btn-disabled' : 'btn-custom'} ${onclick}`} 
+                 aria-disabled={isButtonDisabled(state)}>
+                {isButtonDisabled(state) ? 'Not Available' : 'Book Now'}
               </button>
             </div>
           </div>
