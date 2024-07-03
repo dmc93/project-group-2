@@ -44,10 +44,12 @@ public class PropertyController {
                          @RequestParam(required = false) String city,
                                             @RequestParam(required = false) Integer bedrooms,
                                             @RequestParam(required = false) Integer bathrooms,
-                                            @RequestParam(required = false) Boolean hasGarden,
+                                            @RequestParam(required = false) String hasGarden,
+                                            @RequestParam(required = false) String state,
+                                            @RequestParam(required = false) Integer price,
                          @RequestParam(required = false) String imageUrl){
 
-        return this.service.updateProperty(id,address,city,bedrooms,bathrooms,hasGarden,imageUrl);
+        return this.service.updateProperty(id,address,city,bedrooms,bathrooms,hasGarden,state,price,imageUrl);
     }
 
 

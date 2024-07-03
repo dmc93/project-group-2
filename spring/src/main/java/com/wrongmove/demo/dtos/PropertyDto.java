@@ -14,8 +14,10 @@ public class PropertyDto {
     private String city;
     private int bedrooms;
     private int bathrooms;
-    private boolean hasGarden;
+    private String hasGarden;
     private String imageUrl;
+    private String state;
+    private int price;
 
     public PropertyDto(){
 
@@ -29,16 +31,20 @@ public class PropertyDto {
         this.city = property.getCity();
         this.address = property.getAddress();
         this.id = property.getId();
+        this.state = property.getState();
+        this.price = property.getPrice();
     }
 
-    public PropertyDto(String imageUrl, boolean hasGarden, int bathrooms, int bedrooms, String city, String address, Integer id) {
-        this.imageUrl = imageUrl;
-        this.hasGarden = hasGarden;
-        this.bathrooms = bathrooms;
-        this.bedrooms = bedrooms;
-        this.city = city;
-        this.address = address;
+    public PropertyDto(Integer id, String address, String city, int bedrooms, int bathrooms, String hasGarden, String imageUrl, String state, int price) {
         this.id = id;
+        this.address = address;
+        this.city = city;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.hasGarden = hasGarden;
+        this.imageUrl = imageUrl;
+        this.state = state;
+        this.price = price;
     }
 
     public Integer getId() {
@@ -81,11 +87,11 @@ public class PropertyDto {
         this.bathrooms = bathrooms;
     }
 
-    public boolean isHasGarden() {
+    public String isHasGarden() {
         return hasGarden;
     }
 
-    public void setHasGarden(boolean hasGarden) {
+    public void setHasGarden(String hasGarden) {
         this.hasGarden = hasGarden;
     }
 
@@ -95,6 +101,26 @@ public class PropertyDto {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getHasGarden() {
+        return hasGarden;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
 
