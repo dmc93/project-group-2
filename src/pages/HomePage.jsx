@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Col, Row, Container, Form, Button } from 'react-bootstrap';
 
 function HomePage() {
-  const apiUrl = "http://localhost:8889/properties";
+  const apiUrl = "http://localhost:4495/property/getAll";
   const [items, setItems] = useState([""]);
   const [filters, setFilters] = useState({});
   const [filteredItems, setFilteredItems] = useState([]);

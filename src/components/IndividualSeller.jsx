@@ -8,7 +8,7 @@ function Propseller() {
     const [userAppointments, setUserAppointments] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8889/appointments?sellerId=${params.sellerId}`)
+        axios.get(`http://localhost:4495/appointments/getAll?sellerId=${params.sellerId}`)
             .then((response) => response.data)
             .then((data) => {
                 setUserAppointments(data);
@@ -19,7 +19,7 @@ function Propseller() {
 
     const handleDelete = (e, id) => {
         e.preventDefault();
-        axios.delete(`http://localhost:8889/appointments/${id}`)
+        axios.delete(`http://localhost:4495/appointments/getAll/${id}`)
             .then(() => {
                 setUserAppointments(userAppointments.filter(appoint => appoint.id !== id));
             })
