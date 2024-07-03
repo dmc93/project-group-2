@@ -14,9 +14,9 @@ function HomePage() {
       .then((response) => response.json())
       .then((data) => {
         setItems(data);
-        const forSaleProperties = data.filter(item => item.status.toLowerCase() === "for sale");
+        const forSaleProperties = data.filter(item => item.state.toLowerCase() === "for sale");
         setFilteredItems(forSaleProperties); // Initially display only "For Sale" properties
-        setFilters({ status: "For Sale" }); // Initialise filters with "For Sale"
+        setFilters({ state: "For Sale" }); // Initialise filters with "For Sale"
       });
   }, []);
 
@@ -62,11 +62,11 @@ function HomePage() {
         ? item.price <= parseInt(filters.price, 10)
         : true;
 
-      const matchesStatus = filters.status
-        ? item.status.toLowerCase() === filters.status.toLowerCase()
+      const matchesState = filters.state
+        ? item.state.toLowerCase() === filters.state.toLowerCase()
         : true;
 
-      return matchesSearch && matchesBedrooms && matchesBathrooms && matchesGarden && matchesPrice && matchesStatus;
+      return matchesSearch && matchesBedrooms && matchesBathrooms && matchesGarden && matchesPrice && matchesState;
     });
 
     console.log("Filtered items:", filtered);
@@ -152,12 +152,12 @@ function HomePage() {
                       </Form.Group>
                     </Col>
                     <Col md={6}>
-                      <Form.Group controlId="status">
-                        <Form.Label>Status:</Form.Label>
+                      <Form.Group controlId="state">
+                        <Form.Label>State:</Form.Label>
                         <Form.Control
                           as="select"
-                          name="status"
-                          value={filters.status || ""}
+                          name="state"
+                          value={filters.state || ""}
                           onChange={handleChange}
                         >
                           <option value="">Select</option>
@@ -193,7 +193,7 @@ function HomePage() {
               price={item.price}
               garden={item.garden}
               imageUrl={item.imageUrl}
-              status={item.status}
+              state={item.state}
             />
           ))}
         </div>

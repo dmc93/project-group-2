@@ -114,7 +114,7 @@ useEffect(() => {
                                             minimumFractionDigits: 0,
                                         })}</td>
 
-                                        <td>{info.status}</td>
+                                        <td>{info.state}</td>
                                         <td><button onClick={() => navigate("/update/" + info.id)} className="delete-btn"> Update Property </button></td>
                                     </tr>
                                 ))

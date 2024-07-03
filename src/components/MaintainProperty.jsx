@@ -13,7 +13,7 @@ export default function MaintainProperty() {
     const [bedrooms, setBedrooms] = useState('')
     const [bathrooms, setBathrooms] = useState('')
     const [garden, setGarden] = useState('')
-    const [status, setStatus] = useState('')
+    const [state, setState] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const navigate = useNavigate()
 
@@ -26,7 +26,7 @@ export default function MaintainProperty() {
     };
 
     useEffect(() => {
-        axios.get("http://localhost:4495/property/getAll" + params.id).then(res => {
+        axios.get("http://localhost:4495/property/" + params.id).then(res => {
         console.log(res)    
         setStreet(res.data.street);
             setTown(res.data.town);
@@ -34,20 +34,35 @@ export default function MaintainProperty() {
             setBedrooms(res.data.bedrooms);
             setBathrooms(res.data.bathrooms);
             setGarden(res.data.garden);
-            setStatus(res.data.status);
+            setState(res.data.state);
             setImageUrl(res.data.imageUrl);
         }).catch(err => console.log(err));
     }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.patch("http://localhost:4495/property/getAll" + params.id, { street, town, price, bedrooms, bathrooms, garden, status, imageUrl })
+        const data = {
+            street,
+            town,
+            price,
+            bedrooms,
+            bathrooms,
+            garden,
+            state,
+            imageUrl
+        };
+        axios.patch(`http://localhost:4495/property/update/${params.id}`, data)
             .then(() => {
                 setAlertMessage("Property details updated successfully.");
-                setShowAlert(true);              
-                 
-            }).catch(err => console.log(err));
+                setShowAlert(true);
+            })
+            .catch(err => {
+                console.error("Error updating property:", err);
+                setAlertMessage("Failed to update property details. Please try again.");
+                setShowAlert(true);
+            });
     }
+
 
     return (
         <div className="body">
@@ -120,8 +135,8 @@ export default function MaintainProperty() {
                 <select type="text"
                     className="input1"
                     required
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)} >
+                    value={state}
+                    onChange={(e) => setState(e.target.value)} >
                     <option>For Sale</option>
                     <option>Withdrawn</option>
                     <option>Sold</option>

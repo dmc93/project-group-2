@@ -5,6 +5,7 @@ import com.wrongmove.demo.entities.Property;
 import com.wrongmove.demo.services.PropertyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.wrongmove.demo.dtos.PropertyUpdateRequest;
 
 import java.util.List;
 
@@ -40,16 +41,17 @@ public class PropertyController {
 
     @PatchMapping("/property/update/{id}")
     public ResponseEntity<?> updateProperty(@PathVariable int id,
-                                            @RequestParam(required = false) String street,
-                                            @RequestParam(required = false) String town,
-                                            @RequestParam(required = false) Integer bedrooms,
-                                            @RequestParam(required = false) Integer bathrooms,
-                                            @RequestParam(required = false) String garden,
-                                            @RequestParam(required = false) String state,
-                                            @RequestParam(required = false) Integer price,
-                                            @RequestParam(required = false) String imageUrl) {
+                                            @RequestBody PropertyUpdateRequest updateRequest) {
 
-        return this.service.updateProperty(id, street, town, bedrooms, bathrooms, garden, state, price, imageUrl);
+        return this.service.updateProperty(id,
+                updateRequest.getStreet(),
+                updateRequest.getTown(),
+                updateRequest.getBedrooms(),
+                updateRequest.getBathrooms(),
+                updateRequest.getGarden(),
+                updateRequest.getState(),
+                updateRequest.getPrice(),
+                updateRequest.getImageUrl());
     }
 
 
