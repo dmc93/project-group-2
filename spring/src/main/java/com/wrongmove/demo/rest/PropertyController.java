@@ -14,7 +14,7 @@ public class PropertyController {
 
     private PropertyService service;
 
-    public PropertyController(PropertyService service){
+    public PropertyController(PropertyService service) {
         this.service = service;
     }
 
@@ -34,24 +34,23 @@ public class PropertyController {
     }
 
     @DeleteMapping("/property/remove/{id}")
-    public ResponseEntity<?> removeProperty(@PathVariable int id){
+    public ResponseEntity<?> removeProperty(@PathVariable int id) {
         return this.service.removeProperty(id);
     }
 
     @PatchMapping("/property/update/{id}")
     public ResponseEntity<?> updateProperty(@PathVariable int id,
-                         @RequestParam(required = false) String address,
-                         @RequestParam(required = false) String city,
+                                            @RequestParam(required = false) String street,
+                                            @RequestParam(required = false) String town,
                                             @RequestParam(required = false) Integer bedrooms,
                                             @RequestParam(required = false) Integer bathrooms,
-                                            @RequestParam(required = false) String hasGarden,
+                                            @RequestParam(required = false) String garden,
                                             @RequestParam(required = false) String state,
                                             @RequestParam(required = false) Integer price,
-                         @RequestParam(required = false) String imageUrl){
+                                            @RequestParam(required = false) String imageUrl) {
 
-        return this.service.updateProperty(id,address,city,bedrooms,bathrooms,hasGarden,state,price,imageUrl);
+        return this.service.updateProperty(id, street, town, bedrooms, bathrooms, garden, state, price, imageUrl);
     }
-
 
 
 }
