@@ -12,7 +12,7 @@ export default function AddProperty() {
     const [bedrooms, setBedrooms] = useState(0)
     const [bathrooms, setBathrooms] = useState(0)
     const [garden, setGarden] = useState('Yes')
-    const [status, setStatus] = useState('For Sale')
+    const [state, setState] = useState('For Sale')
     const [imageUrl, setImageUrl] = useState('')
     const [sellerId, setSellerId] = useState("");
     const [showAlert, setShowAlert] = useState(false);
@@ -22,20 +22,23 @@ export default function AddProperty() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Fetch sellers data 
+        // Fetch sellers data
         try {
             const response = await axios.get(`http://localhost:4495/seller/get/all`);
-            const sellersData = await response.json();
+            const sellersData = response.data
+
+             // Convert sellerId to a number if it's a string
+                    const numericSellerId = Number(sellerId);
 
             // Check if seller ID exists
-            const sellerExists = sellersData.some((seller) => seller.id === sellerId);
+            const sellerExists = sellersData.some((data) => data.id === numericSellerId);
             if (!sellerExists) {
                 setAlertMessage(`Seller ID ${sellerId} does not exist. Please enter a valid seller ID`);
                 setShowAlert(true);
                 return;
             }
 
-            const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, status, imageUrl }
+            const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, state, imageUrl }
 
             const postResponse = await axios.post('http://localhost:4495/property/add', task);
                         const data = postResponse.data;
@@ -50,7 +53,7 @@ export default function AddProperty() {
             setBedrooms(0)
             setBathrooms(0)
             setGarden('Yes')
-            setStatus('For Sale')
+            setState('For Sale')
             setImageUrl('')
 
         } catch (error) {

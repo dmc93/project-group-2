@@ -1,21 +1,19 @@
 package com.wrongmove.demo.dtos;
 
 import com.wrongmove.demo.entities.Property;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 public class PropertyDto {
 
 
     private Integer id;
-    private String address;
-    private String city;
+    private String street;
+    private String town;
     private int bedrooms;
     private int bathrooms;
-    private boolean hasGarden;
+    private String garden;
     private String imageUrl;
+    private String state;
+    private int price;
 
     public PropertyDto(){
 
@@ -23,22 +21,26 @@ public class PropertyDto {
 
     public PropertyDto(Property property){
         this.imageUrl = property.getImageUrl();
-        this.hasGarden = property.isHasGarden();
+        this.garden = property.isHasGarden();
         this.bathrooms = property.getBathrooms();
         this.bedrooms = property.getBedrooms();
-        this.city = property.getCity();
-        this.address = property.getAddress();
+        this.town = property.getTown();
+        this.street = property.getStreet();
         this.id = property.getId();
+        this.state = property.getState();
+        this.price = property.getPrice();
     }
 
-    public PropertyDto(String imageUrl, boolean hasGarden, int bathrooms, int bedrooms, String city, String address, Integer id) {
-        this.imageUrl = imageUrl;
-        this.hasGarden = hasGarden;
-        this.bathrooms = bathrooms;
-        this.bedrooms = bedrooms;
-        this.city = city;
-        this.address = address;
+    public PropertyDto(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price) {
         this.id = id;
+        this.street = street;
+        this.town = town;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.imageUrl = imageUrl;
+        this.state = state;
+        this.price = price;
     }
 
     public Integer getId() {
@@ -49,20 +51,20 @@ public class PropertyDto {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getCity() {
-        return city;
+    public String getTown() {
+        return town;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public int getBedrooms() {
@@ -81,12 +83,12 @@ public class PropertyDto {
         this.bathrooms = bathrooms;
     }
 
-    public boolean isHasGarden() {
-        return hasGarden;
+    public String isHasGarden() {
+        return garden;
     }
 
-    public void setHasGarden(boolean hasGarden) {
-        this.hasGarden = hasGarden;
+    public void setGarden(String garden) {
+        this.garden = garden;
     }
 
     public String getImageUrl() {
@@ -95,6 +97,26 @@ public class PropertyDto {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getGarden() {
+        return garden;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
 
