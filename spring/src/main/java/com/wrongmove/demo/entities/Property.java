@@ -12,11 +12,11 @@ public class Property {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String address;
-    private String city;
+    private String street;
+    private String town;
     private int bedrooms;
     private int bathrooms;
-    private String hasGarden;
+    private String garden;
     private String imageUrl;
     private String state;
     private int price;
@@ -25,15 +25,15 @@ public class Property {
 
     }
 
-    public Property(int price, String state, String imageUrl, String hasGarden, int bathrooms, int bedrooms, String city, String address, Integer id) {
+    public Property(int price, String state, String imageUrl, String garden, int bathrooms, int bedrooms, String town, String street, Integer id) {
         this.price = price;
         this.state = state;
         this.imageUrl = imageUrl;
-        this.hasGarden = hasGarden;
+        this.garden = garden;
         this.bathrooms = bathrooms;
         this.bedrooms = bedrooms;
-        this.city = city;
-        this.address = address;
+        this.town = town;
+        this.street = street;
         this.id = id;
     }
 
@@ -45,20 +45,20 @@ public class Property {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getCity() {
-        return city;
+    public String getTown() {
+        return town;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public int getBedrooms() {
@@ -78,11 +78,11 @@ public class Property {
     }
 
     public String isHasGarden() {
-        return hasGarden;
+        return garden;
     }
 
-    public void setHasGarden(String hasGarden) {
-        this.hasGarden = hasGarden;
+    public void setGarden(String garden) {
+        this.garden = garden;
     }
 
     public String getImageUrl() {
@@ -93,8 +93,8 @@ public class Property {
         this.imageUrl = imageUrl;
     }
 
-    public String getHasGarden() {
-        return hasGarden;
+    public String getGarden() {
+        return garden;
     }
 
     public String getState() {

@@ -1,20 +1,16 @@
 package com.wrongmove.demo.dtos;
 
 import com.wrongmove.demo.entities.Property;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 public class PropertyDto {
 
 
     private Integer id;
-    private String address;
-    private String city;
+    private String street;
+    private String town;
     private int bedrooms;
     private int bathrooms;
-    private String hasGarden;
+    private String garden;
     private String imageUrl;
     private String state;
     private int price;
@@ -25,23 +21,23 @@ public class PropertyDto {
 
     public PropertyDto(Property property){
         this.imageUrl = property.getImageUrl();
-        this.hasGarden = property.isHasGarden();
+        this.garden = property.isHasGarden();
         this.bathrooms = property.getBathrooms();
         this.bedrooms = property.getBedrooms();
-        this.city = property.getCity();
-        this.address = property.getAddress();
+        this.town = property.getTown();
+        this.street = property.getStreet();
         this.id = property.getId();
         this.state = property.getState();
         this.price = property.getPrice();
     }
 
-    public PropertyDto(Integer id, String address, String city, int bedrooms, int bathrooms, String hasGarden, String imageUrl, String state, int price) {
+    public PropertyDto(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price) {
         this.id = id;
-        this.address = address;
-        this.city = city;
+        this.street = street;
+        this.town = town;
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
-        this.hasGarden = hasGarden;
+        this.garden = garden;
         this.imageUrl = imageUrl;
         this.state = state;
         this.price = price;
@@ -55,20 +51,20 @@ public class PropertyDto {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public String getCity() {
-        return city;
+    public String getTown() {
+        return town;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setTown(String town) {
+        this.town = town;
     }
 
     public int getBedrooms() {
@@ -88,11 +84,11 @@ public class PropertyDto {
     }
 
     public String isHasGarden() {
-        return hasGarden;
+        return garden;
     }
 
-    public void setHasGarden(String hasGarden) {
-        this.hasGarden = hasGarden;
+    public void setGarden(String garden) {
+        this.garden = garden;
     }
 
     public String getImageUrl() {
@@ -103,8 +99,8 @@ public class PropertyDto {
         this.imageUrl = imageUrl;
     }
 
-    public String getHasGarden() {
-        return hasGarden;
+    public String getGarden() {
+        return garden;
     }
 
     public String getState() {

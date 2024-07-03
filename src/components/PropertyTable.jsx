@@ -4,6 +4,7 @@ import '../css/RegisterUser.css'
 import { useNavigate } from 'react-router-dom';
 import CustomAlert from './CustomAlert';
 import PasswordInput from './PasswordInput';
+import axios from 'axios';
 
 
 function PropertyDisplay() {
@@ -19,14 +20,20 @@ function PropertyDisplay() {
 //             setShowAlert(true);
 //         }
 //     };
-    useEffect(() => {
 
-        fetch('http://localhost:8889/properties')
-            .then((response) => response.json())
-            .then((data) => { setProperties(data) })
-            .catch((error) => console.error('Error:', error));
 
-    }, [properties])
+useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get('http://localhost:4495/property/getAll');
+            setProperties(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
 
     const sortedProperties = [...properties].sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {

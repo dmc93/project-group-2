@@ -1,6 +1,5 @@
 package com.wrongmove.demo.services;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import com.wrongmove.demo.dtos.PropertyDto;
 import com.wrongmove.demo.entities.Property;
 import com.wrongmove.demo.repos.PropertyRepo;
@@ -53,11 +52,11 @@ public class PropertyService {
     }
 
     public ResponseEntity<?> updateProperty(Integer id,
-                                   String address,
-                                   String city,
+                                   String street,
+                                   String town,
                                    Integer bedrooms,
                                    Integer bathrooms,
-                                   String hasGarden,
+                                   String garden,
                                    String state,
                                    Integer price,
                                    String imageUrl){
@@ -69,11 +68,11 @@ public class PropertyService {
 
         Property toUpdate = found.get();
 
-        if (address != null) toUpdate.setAddress(address);
-        if (city != null) toUpdate.setCity(city);
+        if (street != null) toUpdate.setStreet(street);
+        if (town != null) toUpdate.setTown(town);
         if (bedrooms != null) toUpdate.setBedrooms(bedrooms);
         if (bathrooms != null) toUpdate.setBathrooms(bathrooms);
-        if (hasGarden != null) toUpdate.setHasGarden(hasGarden);
+        if (garden != null) toUpdate.setGarden(garden);
         if (state != null) toUpdate.setState(state);
         if (price != null) toUpdate.setPrice(price);
         if (imageUrl != null) toUpdate.setImageUrl(imageUrl);
