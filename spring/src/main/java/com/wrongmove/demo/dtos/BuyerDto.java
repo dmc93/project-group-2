@@ -1,5 +1,5 @@
 package com.wrongmove.demo.dtos;
-
+//comment for Sana
 import com.wrongmove.demo.entities.Buyer;
 
 public class BuyerDto {
