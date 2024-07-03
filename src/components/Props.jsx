@@ -21,7 +21,7 @@ function PropSeller() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8889/properties?id=${params.id}`)
+        axios.get(`http://localhost:4495/property/getAll?id=${params.id}`)
             .then((response) => response.data)
             .then((data) => { setUserProperties(data); })
             .then(() => console.log(userProperties))
@@ -32,7 +32,7 @@ function PropSeller() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:8889/appointments?propertyId=${params.id}`)
+        axios.get(`http://localhost:4495/appointments/getAll?propertyId=${params.id}`)
             .then((response) => response.data)
             .then((data) => { setAppts(data); })
             .then(() => console.log(appts))
