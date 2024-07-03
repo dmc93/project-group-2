@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   const [expanded, setExpanded] = useState(false);
@@ -14,11 +15,11 @@ function NavBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")} />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto" onClick={() => setExpanded(false)}>
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/buyers">Buyers</Nav.Link>
-              <Nav.Link href="/sellers">Sellers</Nav.Link>
-              <Nav.Link href="/propertyadmin">Property Admin</Nav.Link>
-              <Nav.Link href="/appointments">Appointments</Nav.Link>
+              <Link className="nav-link" to="/">Home</Link>
+              <Link className="nav-link" to="/buyers">Buyers</Link>
+              <Link className="nav-link" to="/sellers">Sellers</Link>
+              <Link className="nav-link" to="/propertyadmin">Property Admin</Link>
+              <Link className="nav-link" to="/appointments">Appointments</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
