@@ -1,13 +1,10 @@
 package com.wrongmove.demo.dtos;
 
-import com.wrongmove.demo.entities.Appointments;
-
 import java.time.LocalDate;
-
 
 public class AppointmentsDto {
 
-    private Integer bookingId;
+    private Integer id;
     private Integer buyerId;
     private String firstName;
     private String surname;
@@ -15,40 +12,28 @@ public class AppointmentsDto {
     private LocalDate date;
     private String timeslot;
 
-
     public AppointmentsDto() {
     }
-    public AppointmentsDto(Appointments appointment) {
-        this.bookingId = appointment.getBookingId();
-        this.buyerId = appointment.getBuyerId();
-        this.firstName = appointment.getFirstName();
-        this.surname = appointment.getSurname();
-        this.propertyId = appointment.getPropertyId();
-        this.date = appointment.getDate();
-        this.timeslot= appointment.getTimeslot();
-    }
 
-
-    public AppointmentsDto(Integer bookingId, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeslot) {
-        this.bookingId = bookingId;
+    public AppointmentsDto(Integer id, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeslot) {
+        this.id = id;
         this.buyerId = buyerId;
         this.firstName = firstName;
         this.surname = surname;
         this.propertyId = propertyId;
         this.date = date;
         this.timeslot = timeslot;
-
     }
-
 
     // Getters and Setters
-    public Integer getBookingId() {
-        return bookingId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setBookingId(Integer bookingId) {
-        this.bookingId = bookingId;
+    public void setId(Integer id) {
+        this.id = id;
     }
+
     public Integer getBuyerId() {
         return buyerId;
     }
@@ -93,8 +78,7 @@ public class AppointmentsDto {
         return timeslot;
     }
 
-    public void setTime(String timeslot) {
+    public void setTimeslot(String timeslot) {
         this.timeslot = timeslot;
     }
-
 }

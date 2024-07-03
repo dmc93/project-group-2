@@ -3,11 +3,10 @@ package com.wrongmove.demo.rest;
 import com.wrongmove.demo.dtos.AppointmentsDto;
 import com.wrongmove.demo.entities.Appointments;
 import com.wrongmove.demo.services.AppointmentsService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -22,33 +21,27 @@ public class AppointmentsController {
     }
 
     @GetMapping("/getAll")
-    public List<AppointmentsDto> getAll() {
-        return this.service.getAll();
+    public List<AppointmentsDto> getAllAppointments() {
+        return service.getAllAppointments();
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<?> get(@PathVariable Integer id) {
-        return this.service.get(id);
+    public ResponseEntity<AppointmentsDto> getAppointmentById(@PathVariable Integer id) {
+        return service.getAppointmentById(id);
     }
 
     @PostMapping("/create")
-    public AppointmentsDto createAppointment(@RequestBody Appointments appointment) {
-        return this.service.createAppointment(appointment).getBody();
+    public ResponseEntity<AppointmentsDto> createAppointment(@RequestBody AppointmentsDto appointmentDto) {
+        return service.createAppointment(appointmentDto);
     }
 
     @PatchMapping("/update/{id}")
-    public ResponseEntity<?> updateAppointment(@PathVariable Integer id,
-                                               @RequestParam(required = false) String firstName,
-                                               @RequestParam(required = false) String surname,
-                                               @RequestParam(required = false) Integer propertyId,
-                                               @RequestParam(required = false) LocalDate date,
-                                               @RequestParam(required = false) String timeslot,
-                                               @RequestParam(required = false) Integer buyerId) {
-        return this.service.updateAppointment(id, firstName, surname, propertyId, date, timeslot, buyerId);
+    public ResponseEntity<AppointmentsDto> updateAppointment(@PathVariable Integer id, @RequestBody AppointmentsDto updatedDto) {
+        return service.updateAppointment(id, updatedDto);
     }
 
     @DeleteMapping("/remove/{id}")
-    public ResponseEntity<?> removeAppointment(@PathVariable Integer id) {
-        return this.service.removeAppointment(id);
+    public ResponseEntity<AppointmentsDto> removeAppointment(@PathVariable Integer id) {
+        return service.removeAppointment(id);
     }
 }

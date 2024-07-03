@@ -5,37 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="updated Property functionality for connecting React / Spring">
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/SellerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Seller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/repos/SellerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/SellerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/SellerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SellerTable.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/wrongMoveSQL.mwb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/BuyerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/BuyerDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Buyer.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Buyer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/repos/BuyerRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/repos/BuyerRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/BuyerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/BuyerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/BuyerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/AppointmentsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/AppointmentsDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Appointments.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Appointments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/AppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/rest/AppointmentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/AppointmentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/AppointmentsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/resources/data.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddAppointment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddAppointment.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddBuyer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddBuyer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddSeller.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BuyerTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuyerTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndividualBuyer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndividualBuyer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/IndividualSeller.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MaintainProperty.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MaintainProperty.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PropertyApt.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PropertyApt.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PropertyTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PropertyTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Props.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Props.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Appointments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Appointments.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Buyers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Buyers.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Sellers.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Sellers.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +65,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging forspring",
+    "git-widget-placeholder": "forspring",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/User/Desktop/Wrong Move Project/project-group-2/src/components",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
@@ -103,6 +89,15 @@
       <recent name="com.wrongmove.demo.entities" />
       <recent name="com.wrongmove.demo.dtos" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wrongmove.demo.Main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
