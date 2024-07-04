@@ -105,7 +105,7 @@ const Appointments = () => {
                           <td>{appoint.surname}</td>
                           <td>{appoint.propertyId}</td>
                           <td>{appoint.date}</td>
-                          <td>{appoint.timeSlot}</td>
+                          <td>{appoint.timeslot}</td>
                           <td><button className="delete-btn" onClick={() => handleDelete(appoint.id)}>Cancel</button></td>
                         </tr>
                     ))}

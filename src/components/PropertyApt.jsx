@@ -19,13 +19,13 @@ const BookAppointment = () => {
     surname: "",
   });
   const availableSlots = [
-    "8:00-9:00",
-    "9:00-10:00",
-    "10:00-11:00",
-    "12:00-13:00",
-    "13:00-14:00",
-    "15:00-16:00",
-    "16:00-17:00",
+    { value: '8:00-9:00', label: '8:00 AM - 9:00 AM' },
+    { value: '9:00-10:00', label: '9:00 AM - 10:00 AM' },
+    { value: '10:00-11:00', label: '10:00 AM - 11:00 AM' },
+    { value: '12:00-13:00', label: '12:00 PM - 1:00 PM' },
+    { value: '13:00-14:00', label: '1:00 PM - 2:00 PM' },
+    { value: '15:00-16:00', label: '3:00 PM - 4:00 PM' },
+    { value: '16:00-17:00', label: '4:00 PM - 5:00 PM' },
   ];
 
   const params = useParams();
