@@ -19,6 +19,12 @@ public class Seller {
 
     }
 
+    public Seller(Integer id, String firstname, String surname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.surname = surname;
+    }
+
     public Seller(String firstname, String surname) {
         this.firstname = firstname;
         this.surname = surname;

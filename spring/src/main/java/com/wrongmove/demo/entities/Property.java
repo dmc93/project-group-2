@@ -20,10 +20,33 @@ public class Property {
     private String imageUrl;
     private String state;
     private int price;
+private int sellerid;
 
-    public Property(){
 
+public Property(){
     }
+
+    public Property(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price, int sellerid) {
+        this.id = id;
+        this.street = street;
+        this.town = town;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.imageUrl = imageUrl;
+        this.state = state;
+        this.price = price;
+        this.sellerid = sellerid;
+    }
+    public int getSellerid() {
+        return sellerid;
+    }
+
+    public void setSellerid(int sellerid) {
+        this.sellerid = sellerid;
+    }
+
+
 
     public Property(int price, String state, String imageUrl, String garden, int bathrooms, int bedrooms, String town, String street, Integer id) {
         this.price = price;
