@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="amended appointments">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/AppointmentsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/dtos/AppointmentsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Appointments.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Appointments.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/AppointmentsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/services/AppointmentsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddAppointment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddAppointment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PropertyApt.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PropertyApt.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Appointments.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Appointments.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

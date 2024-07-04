@@ -142,6 +142,7 @@ const BookAppointment = () => {
         } finally {
             setIsSubmitting(false);
         }
+
     };
 
 
@@ -170,6 +171,7 @@ const BookAppointment = () => {
                         required
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
+                        readOnly
                     />
                 </div>
                 <br />
@@ -181,6 +183,7 @@ const BookAppointment = () => {
                         required
                         value={surname}
                         onChange={(e) => setSurname(e.target.value)}
+                        readOnly
                     />
                 </div>
                 <br />
@@ -227,6 +230,7 @@ const BookAppointment = () => {
                         message={alertMessage}
                         onClose={() => {
                             setShowAlert(false);
+                            window.location.reload()
                         }}
                     />
                 )}
