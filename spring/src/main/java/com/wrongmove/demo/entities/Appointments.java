@@ -15,19 +15,20 @@ public class Appointments {
     private String surname;
     private Integer propertyId;
     private LocalDate date;
-    private String timeslot;
+
+    private String timeSlot;
 
     public Appointments() {
     }
 
-    public Appointments(Integer id, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeslot) {
+    public Appointments(Integer id, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
         this.id = id;
         this.buyerId = buyerId;
         this.firstName = firstName;
         this.surname = surname;
         this.propertyId = propertyId;
         this.date = date;
-        this.timeslot = timeslot;
+        this.timeSlot = timeSlot;
     }
 
     // Getters and Setters
@@ -80,10 +81,10 @@ public class Appointments {
     }
 
     public String getTimeslot() {
-        return timeslot;
+        return timeSlot;
     }
 
-    public void setTimeslot(String timeslot) {
-        this.timeslot = timeslot;
+    public void setTimeslot(String timeSlot) {
+        this.timeSlot = timeSlot;
     }
 }

@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Service
 public class AppointmentsService {
 
-    private final AppointmentsRepo repo;
+    private AppointmentsRepo repo;
 
     public AppointmentsService(AppointmentsRepo repo) {
         this.repo = repo;
