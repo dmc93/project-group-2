@@ -45,20 +45,6 @@ public class BuyerService {
         return new ResponseEntity<>(new BuyerDto(created), HttpStatus.CREATED);
     }
 
-    public ResponseEntity<?> updateBuyer(Integer id, String firstname, String surname){
-        Optional<Buyer> found = this.repo.findById(id);
-        if (found.isEmpty()){
-            return new ResponseEntity<>("No buyer with id " + id, HttpStatus.NOT_FOUND);
-        }
-
-        Buyer toUpdate = found.get();
-        if (firstname != null) toUpdate.setFirstname(firstname);
-        if (surname != null) toUpdate.setSurname(surname);
-
-        Buyer updated = this.repo.save(toUpdate);
-        return ResponseEntity.ok(new BuyerDto(updated));
-        }
-
         public ResponseEntity<?> removeBuyer(Integer id) {
         Optional<Buyer> found = this.repo.findById(id);
         if (found.isEmpty()) {

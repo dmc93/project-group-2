@@ -1,9 +1,7 @@
-package com.wrongmove.demo.tests;
+package com.wrongmove.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wrongmove.demo.entities.Buyer;
-import net.bytebuddy.dynamic.DynamicType;
-import org.apache.coyote.Request;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc

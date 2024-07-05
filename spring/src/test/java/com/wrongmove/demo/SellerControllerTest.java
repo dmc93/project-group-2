@@ -1,4 +1,4 @@
-package com.wrongmove.demo.tests;
+package com.wrongmove.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wrongmove.demo.entities.Seller;

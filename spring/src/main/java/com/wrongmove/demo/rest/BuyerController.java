@@ -39,10 +39,4 @@ public class BuyerController {
         return service.removeBuyer(id);
     }
 
-    @PatchMapping("buyer/update/{id}")
-    public ResponseEntity<?> updateBuyer(@PathVariable Integer id,
-                                         @RequestParam(required = false) String firstname,
-                                         @RequestParam(required = false) String surname) {
-        return service.updateBuyer(id, firstname, surname);
     }
-}
