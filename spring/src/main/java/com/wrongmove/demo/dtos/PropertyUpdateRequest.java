@@ -6,9 +6,23 @@ public class PropertyUpdateRequest {
     private Integer bedrooms;
     private Integer bathrooms;
     private String garden;
-    private String state; // Changed from 'state' to 'status'
+    private String state;
     private Integer price;
     private String imageUrl;
+
+    public PropertyUpdateRequest() {
+    }
+
+    public PropertyUpdateRequest(String street, String town, Integer bedrooms, Integer bathrooms, String garden, String state, Integer price, String imageUrl) {
+        this.street = street;
+        this.town = town;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.garden = garden;
+        this.state = state;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
 
     public String getStreet() {
         return street;
@@ -54,7 +68,7 @@ public class PropertyUpdateRequest {
         return state;
     }
 
-    public void setState(String status) {
+    public void setState(String state) {
         this.state = state;
     }
 
@@ -73,6 +87,4 @@ public class PropertyUpdateRequest {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-
-    // Getters and setters
 }
