@@ -4,7 +4,7 @@ import CustomAlert from "./CustomAlert";
 
 
 
-export default function AddProperty() {
+export default function AddProperty({onAddProperty}) {
 
     const [street, setStreet] = useState('')
     const [town, setTown] = useState('')
@@ -55,6 +55,8 @@ export default function AddProperty() {
             setGarden('Yes')
             setState('For Sale')
             setImageUrl('')
+
+            onAddProperty(); // Trigger fetching new data
 
         } catch (error) {
             console.error("Error fetching sellers data:", error);
