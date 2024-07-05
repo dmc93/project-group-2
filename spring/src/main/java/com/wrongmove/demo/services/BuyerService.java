@@ -62,7 +62,7 @@ public class BuyerService {
         public ResponseEntity<?> removeBuyer(Integer id) {
         Optional<Buyer> found = this.repo.findById(id);
         if (found.isEmpty()) {
-            return new ResponseEntity<>("No buyer found with id" + id, HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No buyer found with id " + id, HttpStatus.NOT_FOUND);
         }
         this.repo.deleteById(id);
         return ResponseEntity.ok("Buyer with id " + id + " has been deleted.");
