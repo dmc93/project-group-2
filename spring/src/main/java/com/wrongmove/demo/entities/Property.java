@@ -1,9 +1,6 @@
 package com.wrongmove.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Property {
@@ -20,13 +17,14 @@ public class Property {
     private String imageUrl;
     private String state;
     private int price;
-private int sellerid;
+    @ManyToOne
+    private Seller seller;
 
 
-public Property(){
+    public Property() {
     }
 
-    public Property(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price, int sellerid) {
+    public Property(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price, Seller seller) {
         this.id = id;
         this.street = street;
         this.town = town;
@@ -36,29 +34,10 @@ public Property(){
         this.imageUrl = imageUrl;
         this.state = state;
         this.price = price;
-        this.sellerid = sellerid;
-    }
-    public int getSellerid() {
-        return sellerid;
-    }
 
-    public void setSellerid(int sellerid) {
-        this.sellerid = sellerid;
     }
 
 
-
-    public Property(int price, String state, String imageUrl, String garden, int bathrooms, int bedrooms, String town, String street, Integer id) {
-        this.price = price;
-        this.state = state;
-        this.imageUrl = imageUrl;
-        this.garden = garden;
-        this.bathrooms = bathrooms;
-        this.bedrooms = bedrooms;
-        this.town = town;
-        this.street = street;
-        this.id = id;
-    }
 
     public Integer getId() {
         return id;
@@ -100,10 +79,6 @@ public Property(){
         this.bathrooms = bathrooms;
     }
 
-    public String isHasGarden() {
-        return garden;
-    }
-
     public void setGarden(String garden) {
         this.garden = garden;
     }
@@ -135,4 +110,13 @@ public Property(){
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public Seller getSeller() {
+        return seller;
+    }
+
+    public void setSeller(Seller seller) {
+        this.seller = seller;
+    }
+
 }

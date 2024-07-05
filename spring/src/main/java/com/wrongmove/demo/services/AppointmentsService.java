@@ -69,29 +69,27 @@ public class AppointmentsService {
     private AppointmentsDto convertToDto(Appointments appointment) {
         return new AppointmentsDto(
                 appointment.getId(),
-                appointment.getBuyerId(),
                 appointment.getFirstName(),
                 appointment.getSurname(),
                 appointment.getPropertyId(),
                 appointment.getDate(),
-                appointment.getTimeslot()
+                appointment.getTimeSlot()
         );
     }
 
     private Appointments convertToEntity(AppointmentsDto dto) {
         return new Appointments(
                 dto.getId(),
-                dto.getBuyerId(),
                 dto.getFirstName(),
                 dto.getSurname(),
                 dto.getPropertyId(),
                 dto.getDate(),
-                dto.getTimeslot()
+                dto.getTimeSlot()
         );
     }
 
     private void validateAppointment(Appointments appointment) {
-        if (appointment.getTimeslot() == null) {
+        if (appointment.getTimeSlot() == null) {
             throw new IllegalArgumentException("Timeslot cannot be null");
         }
         // Additional validation logic can be added here
@@ -110,8 +108,8 @@ public class AppointmentsService {
         if (updatedDto.getDate() != null) {
             appointmentToUpdate.setDate(updatedDto.getDate());
         }
-        if (updatedDto.getTimeslot() != null) {
-            appointmentToUpdate.setTimeslot(updatedDto.getTimeslot());
+        if (updatedDto.getTimeSlot() != null) {
+            appointmentToUpdate.setTimeSlot(updatedDto.getTimeSlot());
         }
     }
 }

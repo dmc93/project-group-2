@@ -1,22 +1,23 @@
 package com.wrongmove.demo.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Seller {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
-
     private String firstname;
     private String surname;
 
-    public Seller(){
+    @OneToMany(mappedBy = "seller")
+    private List<Property> properties;
 
+    //Required
+    public Seller() {
+        super();
     }
 
     public Seller(Integer id, String firstname, String surname) {
@@ -30,9 +31,10 @@ public class Seller {
         this.surname = surname;
     }
 
-    public Integer getId() {
+    public Integer getid() {
         return id;
     }
+
 
     public void setId(Integer id) {
         this.id = id;
@@ -54,5 +56,16 @@ public class Seller {
         this.surname = surname;
     }
 
+    public Seller(List<Property> properties) {
+        this.properties = properties;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
+    }
+
+    public List<Property> getProperties() {
+        return properties;
+    }
 
 }

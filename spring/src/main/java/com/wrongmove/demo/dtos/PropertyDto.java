@@ -1,11 +1,12 @@
 package com.wrongmove.demo.dtos;
 
 import com.wrongmove.demo.entities.Property;
+import com.wrongmove.demo.entities.Seller;
 
 public class PropertyDto {
 
-
     private Integer id;
+
     private String street;
     private String town;
     private int bedrooms;
@@ -15,13 +16,17 @@ public class PropertyDto {
     private String state;
     private int price;
 
-    public PropertyDto(){
 
+
+
+    public PropertyDto(){
+super();
     }
 
+    //object constructor
     public PropertyDto(Property property){
         this.imageUrl = property.getImageUrl();
-        this.garden = property.isHasGarden();
+        this.garden = property.getGarden();
         this.bathrooms = property.getBathrooms();
         this.bedrooms = property.getBedrooms();
         this.town = property.getTown();
@@ -29,8 +34,10 @@ public class PropertyDto {
         this.id = property.getId();
         this.state = property.getState();
         this.price = property.getPrice();
+
     }
 
+    //details
     public PropertyDto(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price) {
         this.id = id;
         this.street = street;
@@ -42,6 +49,8 @@ public class PropertyDto {
         this.state = state;
         this.price = price;
     }
+
+
 
     public Integer getId() {
         return id;
@@ -83,7 +92,7 @@ public class PropertyDto {
         this.bathrooms = bathrooms;
     }
 
-    public String isHasGarden() {
+    public String getGarden() {
         return garden;
     }
 
@@ -99,11 +108,7 @@ public class PropertyDto {
         this.imageUrl = imageUrl;
     }
 
-    public String getGarden() {
-        return garden;
-    }
-
-    public String getState() {
+      public String getState() {
         return state;
     }
 

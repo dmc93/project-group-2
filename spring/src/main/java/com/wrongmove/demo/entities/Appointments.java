@@ -10,20 +10,22 @@ public class Appointments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer buyerId;
     private String firstName;
     private String surname;
     private Integer propertyId;
     private LocalDate date;
-
     private String timeSlot;
+
+    @ManyToOne
+    private Buyer buyer;
+
 
     public Appointments() {
     }
 
-    public Appointments(Integer id, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
+
+    public Appointments(Integer id,  String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
         this.id = id;
-        this.buyerId = buyerId;
         this.firstName = firstName;
         this.surname = surname;
         this.propertyId = propertyId;
@@ -40,13 +42,6 @@ public class Appointments {
         this.id = id;
     }
 
-    public Integer getBuyerId() {
-        return buyerId;
-    }
-
-    public void setBuyerId(Integer buyerId) {
-        this.buyerId = buyerId;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -80,11 +75,20 @@ public class Appointments {
         this.date = date;
     }
 
-    public String getTimeslot() {
+
+    public Buyer getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(Buyer buyer) {
+        this.buyer = buyer;
+    }
+
+    public String getTimeSlot() {
         return timeSlot;
     }
 
-    public void setTimeslot(String timeSlot) {
+    public void setTimeSlot(String timeSlot) {
         this.timeSlot = timeSlot;
     }
 }

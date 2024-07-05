@@ -2,18 +2,28 @@ package com.wrongmove.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Buyer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer id;
-
     private String firstname;
     private String surname;
 
-    public Buyer(){
+    @OneToMany(mappedBy = "buyer")
+    private List<Appointments> appointments;
 
+    //Required
+    public Buyer() {
+        super();
+    }
+
+    public Buyer(Integer id, String firstname, String surname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.surname = surname;
     }
 
     public Buyer(String firstname, String surname) {
@@ -45,5 +55,11 @@ public class Buyer {
         this.surname = surname;
     }
 
+    public List<Appointments> getAppointments() {
+        return appointments;
+    }
 
+    public void setAppointments(List<Appointments> appointments) {
+        this.appointments = appointments;
+    }
 }

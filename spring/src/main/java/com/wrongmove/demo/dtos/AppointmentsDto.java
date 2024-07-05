@@ -1,5 +1,6 @@
 package com.wrongmove.demo.dtos;
 
+import com.wrongmove.demo.entities.Appointments;
 import jakarta.persistence.Column;
 
 import java.time.LocalDate;
@@ -7,19 +8,38 @@ import java.time.LocalDate;
 public class AppointmentsDto {
 
     private Integer id;
-    private Integer buyerId;
+
     private String firstName;
     private String surname;
     private Integer propertyId;
     private LocalDate date;
     private String timeSlot;
 
+
+
+
+
     public AppointmentsDto() {
+        super();
     }
 
-    public AppointmentsDto(Integer id, Integer buyerId, String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
+    //    object constructor
+    public AppointmentsDto(Appointments appointment) {
+        this.id = appointment.getId();
+        this.firstName = appointment.getFirstName();
+        this.surname = appointment.getSurname();
+        this.propertyId = appointment.getPropertyId();
+        this.date = appointment.getDate();
+        this.timeSlot = appointment.getTimeSlot();
+    }
+
+
+
+
+
+    //details
+    public AppointmentsDto(Integer id, String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
         this.id = id;
-        this.buyerId = buyerId;
         this.firstName = firstName;
         this.surname = surname;
         this.propertyId = propertyId;
@@ -36,12 +56,12 @@ public class AppointmentsDto {
         this.id = id;
     }
 
-    public Integer getBuyerId() {
-        return buyerId;
+    public String getTimeSlot() {
+        return timeSlot;
     }
 
-    public void setBuyerId(Integer buyerId) {
-        this.buyerId = buyerId;
+    public void setTimeSlot(String timeSlot) {
+        this.timeSlot = timeSlot;
     }
 
     public String getFirstName() {
@@ -76,11 +96,5 @@ public class AppointmentsDto {
         this.date = date;
     }
 
-    public String getTimeslot() {
-        return timeSlot;
-    }
 
-    public void setTimeslot(String timeSlot) {
-        this.timeSlot = timeSlot;
-    }
 }
