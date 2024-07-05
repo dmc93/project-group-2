@@ -7,9 +7,9 @@ import PasswordInput from './PasswordInput';
 import axios from 'axios';
 
 
-function PropertyDisplay() {
+function PropertyDisplay({properties}) {
     const navigate = useNavigate()
-    const [properties, setProperties] = useState([])
+
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
@@ -22,18 +22,7 @@ function PropertyDisplay() {
 //     };
 
 
-useEffect(() => {
-        fetchData();
-    }, []);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:4495/property/getAll');
-            setProperties(response.data);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
 
     const sortedProperties = [...properties].sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
