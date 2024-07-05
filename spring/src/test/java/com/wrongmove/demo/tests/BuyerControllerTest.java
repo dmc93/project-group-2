@@ -17,6 +17,9 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -46,9 +49,9 @@ public class BuyerControllerTest {
 
         mvc.perform(mockRequest)
                 .andExpect(checkStatus)
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.firstname").value("Jane"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.surname").value("Doe"));
+                .andExpect(jsonPath("$.id").exists())
+                .andExpect(jsonPath("$.firstname").value("Jane"))
+                .andExpect(jsonPath("$.surname").value("Doe"));
     }
 
     @Test
@@ -75,14 +78,14 @@ public class BuyerControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
 
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$").isArray())
-                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(3)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].firstname").value("John"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].surname").value("Doe"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].firstname").value("Jane"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].surname").value("Doe"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[2].firstname").value("Keir"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[2].surname").value("Starmer"));
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$", Matchers.hasSize(3)))
+                .andExpect(jsonPath("$[0].firstname").value("John"))
+                .andExpect(jsonPath("$[0].surname").value("Doe"))
+                .andExpect(jsonPath("$[1].firstname").value("Jane"))
+                .andExpect(jsonPath("$[1].surname").value("Doe"))
+                .andExpect(jsonPath("$[2].firstname").value("Keir"))
+                .andExpect(jsonPath("$[2].surname").value("Starmer"));
     }
 
     @Test
@@ -90,9 +93,9 @@ public class BuyerControllerTest {
         mvc.perform(MockMvcRequestBuilders.get("/buyer/get/2")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(2))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.firstname").value("Jane"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.surname").value("Doe"));
+                .andExpect(jsonPath("$.id").value(2))
+                .andExpect(jsonPath("$.firstname").value("Jane"))
+                .andExpect(jsonPath("$.surname").value("Doe"));
     }
 
     @Test
@@ -101,4 +104,5 @@ public class BuyerControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isNotFound())
                 .andExpect(MockMvcResultMatchers.content().string("No buyer found with id 4"));
     }
+
 }
