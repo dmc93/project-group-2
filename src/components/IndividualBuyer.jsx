@@ -8,10 +8,10 @@ function Propbuyer() {
     const [userAppointments, setUserAppointments] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:4495/appointments/getAll?buyerId=${params.buyerId}`)
+        axios.get(`http://localhost:4495/buyer/get/${params.buyerId}`)
             .then((response) => response.data)
             .then((data) => {
-                setUserAppointments(data);
+                setUserAppointments(data.appointments);
                 console.log(data);
             })
             .catch((error) => console.error('Error:', error));
