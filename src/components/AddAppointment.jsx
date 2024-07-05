@@ -13,7 +13,6 @@ const BookAppointment = () => {
     const [alertMessage, setAlertMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Define available slots with consistent key and value
     const availableSlots = [
         { value: '8:00-9:00', label: '8:00 AM - 9:00 AM' },
         { value: '9:00-10:00', label: '9:00 AM - 10:00 AM' },
@@ -92,6 +91,7 @@ const BookAppointment = () => {
         }
     };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -103,24 +103,27 @@ const BookAppointment = () => {
             return;
         }
 
+      
+        const convertedPropertyId = parseInt(propertyId, 10);
+
         try {
-            // Fetch all existing appointments
             const response = await axios.get('http://localhost:4495/appointments/getAll');
             const bookingData = response.data;
 
-            // Check if the selected timeslot is already booked
             const appointmentExists = bookingData.some(
-                (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeslot === timeSlot
+                (booking) => booking.propertyId === convertedPropertyId && booking.date === date && booking.timeslot === timeSlot
             );
+
+            console.log('Existing bookings:', bookingData);
+            console.log('Checking for appointment:', { propertyId: convertedPropertyId, date, timeSlot });
 
             if (appointmentExists) {
                 setAlertMessage(`This timeslot is already booked for Property ID ${propertyId} on ${date} at ${timeSlot}. Please select another time slot.`);
                 setShowAlert(true);
-                setIsSubmitting(false); // Reset the submitting state
+                setIsSubmitting(false);
                 return;
             }
 
-            // If the slot is available, proceed with booking
             const appointment = { buyerId, firstName, surname, propertyId, date, timeslot: timeSlot };
 
             const appointmentResponse = await axios.post('http://localhost:4495/appointments/create', appointment);
@@ -128,7 +131,6 @@ const BookAppointment = () => {
             setAlertMessage(`Appointment Booked. Your Booking ID is ${appointmentData.id}`);
             setShowAlert(true);
 
-            // Clear form fields after successful booking
             setBuyerId('');
             setFirstName('');
             setSurname('');
@@ -144,9 +146,6 @@ const BookAppointment = () => {
         }
 
     };
-
-
-
 
     return (
         <div className="body">
