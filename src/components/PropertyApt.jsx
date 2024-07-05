@@ -84,6 +84,7 @@ const BookAppointment = () => {
       return;
     }
 
+    const convertedPropertyId = parseInt(propertyId, 10);
     try {
       // Fetch all existing appointments
       const response = await axios.get('http://localhost:4495/appointments/getAll');
