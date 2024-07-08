@@ -23,6 +23,7 @@ public class AppointmentsDto {
         super();
     }
 
+
     //    object constructor
     public AppointmentsDto(Appointments appointment) {
         this.id = appointment.getId();
@@ -33,10 +34,6 @@ public class AppointmentsDto {
         this.timeSlot = appointment.getTimeSlot();
 
     }
-
-
-
-
 
     //details
     public AppointmentsDto(Integer id,  String firstName, String surname, LocalDate date, String timeSlot) {

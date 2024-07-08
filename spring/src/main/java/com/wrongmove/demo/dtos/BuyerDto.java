@@ -33,6 +33,12 @@ public class BuyerDto {
         return id;
     }
 
+    public BuyerDto(Integer id, String firstname, String surname) {
+        this.id = id;
+        this.firstname = firstname;
+        this.surname = surname;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }

@@ -52,6 +52,5 @@ public class BuyerService {
         }
         this.repo.deleteById(id);
         return ResponseEntity.ok("Buyer with id " + id + " has been deleted.");
-
         }
 }

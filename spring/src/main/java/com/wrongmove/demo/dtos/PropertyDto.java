@@ -44,7 +44,6 @@ public class PropertyDto {
                 this.appointments.add(new AppointmentsDto(appointment));
             }
         }
-
     }
 
     //details
