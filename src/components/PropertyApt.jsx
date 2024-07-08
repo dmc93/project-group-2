@@ -103,7 +103,15 @@ const BookAppointment = () => {
       }
 
       // If the slot is available, proceed with booking
-      const appointment = { buyerId, firstName, surname, propertyId, date, timeslot: timeSlot };
+      const appointment = {
+        buyer: { id: buyerId },
+        firstName,
+        surname,
+        property: { id: convertedPropertyId },
+        date,
+        timeSlot
+        
+    };
 
       const appointmentResponse = await axios.post('http://localhost:4495/appointments/create', appointment);
       const appointmentData = appointmentResponse.data;

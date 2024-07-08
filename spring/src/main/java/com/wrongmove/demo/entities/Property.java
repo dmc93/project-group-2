@@ -22,7 +22,7 @@ public class Property {
     @ManyToOne
     private Seller seller;
 
-    @ManyToMany(mappedBy="property")
+    @OneToMany(mappedBy="property")
     private List<Appointments> appointments;
 
 

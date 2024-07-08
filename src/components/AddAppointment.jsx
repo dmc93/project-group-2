@@ -130,7 +130,7 @@ const BookAppointment = () => {
                 surname,
                 property: { id: convertedPropertyId },
                 date,
-                timeslot: timeSlot
+                timeSlot
                 
             };
 

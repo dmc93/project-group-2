@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="Additional Testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/java/com/wrongmove/demo/entities/Property.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddAppointment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddAppointment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +92,7 @@
       <recent name="com.wrongmove.demo.entities" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SellerControllerTest">
+  <component name="RunManager" selected="Spring Boot.Main">
     <configuration name="SellerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -231,7 +232,9 @@
     <MESSAGE value="updated Property functionality for connecting React / Spring" />
     <MESSAGE value="amended appointments" />
     <MESSAGE value="Additional Testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Additional Testing" />
+    <MESSAGE value="amended appointments to not allow duplicate appointments" />
+    <MESSAGE value="amended AddAppointment" />
+    <option name="LAST_COMMIT_MESSAGE" value="amended AddAppointment" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project_group_2$DemoApplicationTests.ic" NAME="DemoApplicationTests Coverage Results" MODIFIED="1720186838331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
