@@ -42,6 +42,7 @@ function Propseller() {
     return (
 <div className='table-container'>
                     <br></br>
+                    <h1 className="pagetitle">Seller's Properties</h1>
                     <br></br>
                     <table >
                         <thead>

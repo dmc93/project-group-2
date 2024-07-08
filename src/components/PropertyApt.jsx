@@ -92,7 +92,7 @@ const BookAppointment = () => {
 
       // Check if the selected timeslot is already booked
       const appointmentExists = bookingData.some(
-          (booking) => booking.propertyId === propertyId && booking.date === date && booking.timeslot === timeSlot
+          (booking) => booking.propertyId === convertedPropertyId && booking.date === date && booking.timeslot === timeSlot
       );
 
       if (appointmentExists) {
