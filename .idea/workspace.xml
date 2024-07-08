@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d70398a-9bac-4a97-8676-6f54d758ad2d" name="Changes" comment="Additional Testing">
-      <change afterPath="$PROJECT_DIR$/spring/src/main/resources/seller-data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring/src/test/java/com/wrongmove/demo/tests/SellerControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/spring/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddAppointment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddAppointment.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="forspring" />
+        <entry key="$PROJECT_DIR$" value="Paul_Restructure" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,6 +134,8 @@
       <list>
         <item itemvalue="JUnit.SellerControllerTest" />
         <item itemvalue="JUnit.SellerControllerTest.testDeleteSeller" />
+        <item itemvalue="JUnit.SellerControllerTest" />
+        <item itemvalue="JUnit.SellerControllerTest.testDeleteSeller" />
       </list>
     </recent_temporary>
   </component>
@@ -234,11 +234,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="Additional Testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/project_group_2$BuyerControllerTest.ic" NAME="BuyerControllerTest Coverage Results" MODIFIED="1720186768617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
-      <FILTER>com.wrongmove.demo.tests.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/project_group_2$DemoApplicationTests.ic" NAME="DemoApplicationTests Coverage Results" MODIFIED="1720186838331" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>com.wrongmove.demo.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/project_group_2$BuyerControllerTest.ic" NAME="BuyerControllerTest Coverage Results" MODIFIED="1720186768617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>com.wrongmove.demo.tests.*</FILTER>
     </SUITE>
   </component>
 </project>
