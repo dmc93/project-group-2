@@ -85,7 +85,7 @@ function JsonDataDisplay() {
                     <tbody>
                         {sortedSellers.map((info) => (
                             <tr key={info.id}>
-                                <td onClick={() => navigate('../appointments/' + info.id)}>{info.id}</td>
+                                <td onClick={() => navigate('../properties/' + info.id)}>{info.id}</td>
                                 <td>{info.firstname}</td>
                                 <td>{info.surname}</td>
                                 <td>

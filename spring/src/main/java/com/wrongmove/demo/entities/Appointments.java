@@ -12,25 +12,35 @@ public class Appointments {
 
     private String firstName;
     private String surname;
-    private Integer propertyId;
+    @ManyToOne
+    private Property property;
+
     private LocalDate date;
     private String timeSlot;
 
     @ManyToOne
     private Buyer buyer;
 
-
     public Appointments() {
     }
 
+    public Property getProperty() {
+        return property;
+    }
 
-    public Appointments(Integer id,  String firstName, String surname, Integer propertyId, LocalDate date, String timeSlot) {
+
+    public void setProperty(Property property) {
+        this.property = property;
+    }
+
+    public Appointments(Integer id, String firstName, String surname, LocalDate date, String timeSlot) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
-        this.propertyId = propertyId;
+
         this.date = date;
         this.timeSlot = timeSlot;
+
     }
 
     // Getters and Setters
@@ -59,13 +69,7 @@ public class Appointments {
         this.surname = surname;
     }
 
-    public Integer getPropertyId() {
-        return propertyId;
-    }
 
-    public void setPropertyId(Integer propertyId) {
-        this.propertyId = propertyId;
-    }
 
     public LocalDate getDate() {
         return date;

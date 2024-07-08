@@ -2,6 +2,8 @@ package com.wrongmove.demo.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Property {
 
@@ -20,8 +22,11 @@ public class Property {
     @ManyToOne
     private Seller seller;
 
+    @ManyToMany(mappedBy="property")
+    private List<Appointments> appointments;
 
-    public Property() {
+
+    public Property() {super();
     }
 
     public Property(Integer id, String street, String town, int bedrooms, int bathrooms, String garden, String imageUrl, String state, int price, Seller seller) {
@@ -37,7 +42,13 @@ public class Property {
 
     }
 
+    public List<Appointments> getAppointments() {
+        return appointments;
+    }
 
+    public void setAppointments(List<Appointments> appointments) {
+        this.appointments = appointments;
+    }
 
     public Integer getId() {
         return id;

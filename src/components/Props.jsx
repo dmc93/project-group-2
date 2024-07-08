@@ -21,9 +21,9 @@ function PropSeller() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:4495/property/getAll?id=${params.id}`)
+        axios.get(`http://localhost:4495/property/${params.id}`)
             .then((response) => response.data)
-            .then((data) => { setUserProperties(data); })
+            .then((data) => { setUserProperties(data.properties); })
             .then(() => console.log(userProperties))
             .catch((error) => console.error('Error:', error));
 
@@ -32,9 +32,9 @@ function PropSeller() {
 
     useEffect(() => {
 
-        axios.get(`http://localhost:4495/appointments/getAll?propertyId=${params.id}`)
+        axios.get(`http://localhost:4495/property/${params.id}`)
             .then((response) => response.data)
-            .then((data) => { setAppts(data); })
+            .then((data) => { setAppts(data.appointments); })
             .then(() => console.log(appts))
             .catch((error) => console.error('Error:', error));
 

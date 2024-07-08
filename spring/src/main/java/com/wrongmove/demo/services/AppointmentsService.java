@@ -71,7 +71,6 @@ public class AppointmentsService {
                 appointment.getId(),
                 appointment.getFirstName(),
                 appointment.getSurname(),
-                appointment.getPropertyId(),
                 appointment.getDate(),
                 appointment.getTimeSlot()
         );
@@ -82,9 +81,10 @@ public class AppointmentsService {
                 dto.getId(),
                 dto.getFirstName(),
                 dto.getSurname(),
-                dto.getPropertyId(),
+
                 dto.getDate(),
                 dto.getTimeSlot()
+
         );
     }
 
@@ -102,9 +102,7 @@ public class AppointmentsService {
         if (updatedDto.getSurname() != null) {
             appointmentToUpdate.setSurname(updatedDto.getSurname());
         }
-        if (updatedDto.getPropertyId() != null) {
-            appointmentToUpdate.setPropertyId(updatedDto.getPropertyId());
-        }
+
         if (updatedDto.getDate() != null) {
             appointmentToUpdate.setDate(updatedDto.getDate());
         }

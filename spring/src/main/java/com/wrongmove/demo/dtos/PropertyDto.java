@@ -1,7 +1,11 @@
 package com.wrongmove.demo.dtos;
 
+import com.wrongmove.demo.entities.Appointments;
 import com.wrongmove.demo.entities.Property;
 import com.wrongmove.demo.entities.Seller;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PropertyDto {
 
@@ -16,15 +20,16 @@ public class PropertyDto {
     private String state;
     private int price;
 
+    //added for one to many mapping
+    private List<AppointmentsDto> appointments = new ArrayList<>();
 
 
-
-    public PropertyDto(){
-super();
+    public PropertyDto(List<AppointmentsDto> appointments) {
+        super();
     }
 
     //object constructor
-    public PropertyDto(Property property){
+    public PropertyDto(Property property) {
         this.imageUrl = property.getImageUrl();
         this.garden = property.getGarden();
         this.bathrooms = property.getBathrooms();
@@ -34,6 +39,11 @@ super();
         this.id = property.getId();
         this.state = property.getState();
         this.price = property.getPrice();
+        if(property.getAppointments() != null){
+            for (Appointments appointment: property.getAppointments()){
+                this.appointments.add(new AppointmentsDto(appointment));
+            }
+        }
 
     }
 
@@ -49,7 +59,6 @@ super();
         this.state = state;
         this.price = price;
     }
-
 
 
     public Integer getId() {
@@ -74,6 +83,14 @@ super();
 
     public void setTown(String town) {
         this.town = town;
+    }
+
+    public List<AppointmentsDto> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<AppointmentsDto> appointments) {
+        this.appointments = appointments;
     }
 
     public int getBedrooms() {
@@ -108,7 +125,7 @@ super();
         this.imageUrl = imageUrl;
     }
 
-      public String getState() {
+    public String getState() {
         return state;
     }
 

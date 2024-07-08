@@ -36,7 +36,7 @@ function Propbuyer() {
                     <thead>
                         <tr>
                             <th>Booking ID</th>
-                            <th>Buyer ID</th>
+                           
                             <th>First Name</th>
                             <th>Surname</th>
                             <th>Property ID</th>
@@ -49,7 +49,7 @@ function Propbuyer() {
                         {userAppointments && userAppointments.map((appoint) => (
                             <tr key={appoint.id}>
                                 <td>{appoint.id}</td>
-                                <td>{appoint.buyerId}</td>
+                              
                                 <td>{appoint.firstName}</td>
                                 <td>{appoint.surname}</td>
                                 <td>{appoint.propertyId}</td>
