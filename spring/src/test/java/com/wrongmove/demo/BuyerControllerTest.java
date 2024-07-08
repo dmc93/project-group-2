@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD,
-        scripts = {"classpath:schema.sql", "classpath:buyer-data.sql"})
+        scripts = {"classpath:schema.sql", "classpath:buyer-data.sql", "classpath:seller-data.sql"})
 public class BuyerControllerTest {
 
     @Autowired
