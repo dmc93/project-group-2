@@ -17,6 +17,7 @@ export default function AddProperty({onAddProperty}) {
     const [sellerId, setSellerId] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+    const [seller, setSeller] = useState('');
 
 
     const handleSubmit = async (e) => {
@@ -38,7 +39,7 @@ export default function AddProperty({onAddProperty}) {
                 return;
             }
 
-            const task = { sellerId, street, town, price, bedrooms, bathrooms, garden, state, imageUrl }
+            const task = { seller: {id:sellerId}, street, town, price, bedrooms, bathrooms, garden, state, imageUrl }
 
             const postResponse = await axios.post('http://localhost:4495/property/add', task);
                         const data = postResponse.data;

@@ -39,6 +39,7 @@ public class Appointments {
         this.surname = surname;
         this.date = date;
         this.timeSlot = timeSlot;
+
     }
 
     // Getters and Setters

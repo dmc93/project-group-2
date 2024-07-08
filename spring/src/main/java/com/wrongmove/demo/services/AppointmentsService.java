@@ -24,21 +24,20 @@ public class AppointmentsService {
     public List<AppointmentsDto> getAllAppointments() {
         List<Appointments> foundAppointments = repo.findAll();
         return foundAppointments.stream()
-                .map(this::convertToDto)
+                .map(AppointmentsDto::new)
                 .collect(Collectors.toList());
     }
 
     public ResponseEntity<AppointmentsDto> getAppointmentById(Integer id) {
         Optional<Appointments> optionalAppointment = repo.findById(id);
-        return optionalAppointment.map(appointment -> ResponseEntity.ok(convertToDto(appointment)))
+        return optionalAppointment.map(appointment -> ResponseEntity.ok(new AppointmentsDto(appointment)))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    public ResponseEntity<AppointmentsDto> createAppointment(AppointmentsDto appointmentDto) {
-        Appointments appointment = convertToEntity(appointmentDto);
-        validateAppointment(appointment);
+    public ResponseEntity<AppointmentsDto> createAppointment(Appointments appointment) {
+             validateAppointment(appointment);
         Appointments createdAppointment = repo.save(appointment);
-        return ResponseEntity.status(HttpStatus.CREATED).body(convertToDto(createdAppointment));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new AppointmentsDto(createdAppointment));
     }
 
     public ResponseEntity<AppointmentsDto> updateAppointment(Integer id, AppointmentsDto updatedDto) {
@@ -51,7 +50,7 @@ public class AppointmentsService {
         updateAppointmentFields(appointmentToUpdate, updatedDto);
 
         Appointments updatedAppointment = repo.save(appointmentToUpdate);
-        return ResponseEntity.ok(convertToDto(updatedAppointment));
+        return ResponseEntity.ok(new AppointmentsDto(updatedAppointment));
     }
 
     @Transactional
@@ -63,19 +62,10 @@ public class AppointmentsService {
 
         Appointments removedAppointment = optionalAppointment.get();
         repo.deleteById(id);
-        return ResponseEntity.ok(convertToDto(removedAppointment));
+        return ResponseEntity.ok(new AppointmentsDto(removedAppointment));
     }
 
-    private AppointmentsDto convertToDto(Appointments appointment) {
-        return new AppointmentsDto(
-                appointment.getId(),
-                appointment.getFirstName(),
-                appointment.getSurname(),
-                appointment.getDate(),
-                appointment.getTimeSlot()
-        );
-    }
-
+    
     private Appointments convertToEntity(AppointmentsDto dto) {
         return new Appointments(
                 dto.getId(),

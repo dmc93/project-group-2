@@ -12,6 +12,7 @@ const BookAppointment = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [buyer, setBuyer]=useState();
 
     const availableSlots = [
         { value: '8:00-9:00', label: '8:00 AM - 9:00 AM' },
@@ -111,7 +112,7 @@ const BookAppointment = () => {
             const bookingData = response.data;
 
             const appointmentExists = bookingData.some(
-                (booking) => booking.propertyId === convertedPropertyId && booking.date === date && booking.timeslot === timeSlot
+                (booking) => booking.propertyId === convertedPropertyId && booking.date === date && booking.timeSlot === timeSlot
             );
 
             console.log('Existing bookings:', bookingData);
@@ -125,7 +126,7 @@ const BookAppointment = () => {
             }
 
             const appointment = {
-                buyer: { id: buyerId },
+                buyer: { id: buyer },
                 firstName,
                 surname,
                 property: { id: convertedPropertyId },
@@ -143,6 +144,7 @@ const BookAppointment = () => {
             setFirstName('');
             setSurname('');
             setPropertyId('');
+            setBuyer('');
             setDate('');
             setTimeSlot('');
         } catch (error) {
@@ -165,7 +167,7 @@ const BookAppointment = () => {
                         type="text"
                         required
                         value={buyerId}
-                        onChange={(e) => setBuyerId(e.target.value)}
+                        onChange={(e) => setBuyerId(e.target.value)+ setBuyer(e.target.value)}
                         onBlur={handlePopulate}
                     />
                 </div>

@@ -31,7 +31,7 @@ public class AppointmentsController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<AppointmentsDto> createAppointment(@RequestBody AppointmentsDto appointmentDto) {
+    public ResponseEntity<AppointmentsDto> createAppointment(@RequestBody Appointments appointmentDto) {
         return service.createAppointment(appointmentDto);
     }
 

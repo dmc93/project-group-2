@@ -30,6 +30,8 @@ const Appointments = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
+
+
   const handleDelete = (id) => {
     setDeleteId(id);
     setShowConfirmation(true);
@@ -65,7 +67,7 @@ const Appointments = () => {
   //     setShowAlert(true); // Show alert if the password is incorrect
   //   }
   // };
-
+console.log("CHECKPOINT",data)
   return (
       <div className="body">
         <div className="container2" style={{ paddingBottom: 0 }}>
