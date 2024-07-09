@@ -1,6 +1,8 @@
 package com.wrongmove.demo.dtos;
 
 import com.wrongmove.demo.entities.Appointments;
+import com.wrongmove.demo.entities.Property;
+import com.wrongmove.demo.entities.Buyer;
 import jakarta.persistence.Column;
 
 import java.time.LocalDate;
@@ -33,20 +35,12 @@ public class AppointmentsDto {
 
         this.date = appointment.getDate();
         this.timeSlot = appointment.getTimeSlot();
-        this.buyerId = appointment.getBuyer().getId();
-        this.propertyId = appointment.getProperty().getId();
+        if (appointment.getBuyer() != null) this.buyerId = appointment.getBuyer().getId();
+        if (appointment.getProperty() != null)this.propertyId = appointment.getProperty().getId();
     }
 
     //details
-    public AppointmentsDto(Integer id,  String firstName, String surname, LocalDate date, String timeSlot) {
-        this.id = id;
-        this.firstName = firstName;
-        this.surname = surname;
 
-        this.date = date;
-        this.timeSlot = timeSlot;
-
-    }
 
     // Getters and Setters
     public Integer getId() {

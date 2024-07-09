@@ -40,18 +40,7 @@ public class AppointmentsService {
         return ResponseEntity.status(HttpStatus.CREATED).body(new AppointmentsDto(createdAppointment));
     }
 
-    public ResponseEntity<AppointmentsDto> updateAppointment(Integer id, AppointmentsDto updatedDto) {
-        Optional<Appointments> optionalAppointment = repo.findById(id);
-        if (optionalAppointment.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
 
-        Appointments appointmentToUpdate = optionalAppointment.get();
-        updateAppointmentFields(appointmentToUpdate, updatedDto);
-
-        Appointments updatedAppointment = repo.save(appointmentToUpdate);
-        return ResponseEntity.ok(new AppointmentsDto(updatedAppointment));
-    }
 
     @Transactional
     public ResponseEntity<AppointmentsDto> removeAppointment(Integer id) {
@@ -65,39 +54,13 @@ public class AppointmentsService {
         return ResponseEntity.ok(new AppointmentsDto(removedAppointment));
     }
 
-    
-    private Appointments convertToEntity(AppointmentsDto dto) {
-        return new Appointments(
-                dto.getId(),
-                dto.getFirstName(),
-                dto.getSurname(),
-
-                dto.getDate(),
-                dto.getTimeSlot()
-
-        );
-    }
 
     private void validateAppointment(Appointments appointment) {
         if (appointment.getTimeSlot() == null) {
             throw new IllegalArgumentException("Timeslot cannot be null");
         }
-        // Additional validation logic can be added here
+
     }
 
-    private void updateAppointmentFields(Appointments appointmentToUpdate, AppointmentsDto updatedDto) {
-        if (updatedDto.getFirstName() != null) {
-            appointmentToUpdate.setFirstName(updatedDto.getFirstName());
-        }
-        if (updatedDto.getSurname() != null) {
-            appointmentToUpdate.setSurname(updatedDto.getSurname());
-        }
 
-        if (updatedDto.getDate() != null) {
-            appointmentToUpdate.setDate(updatedDto.getDate());
-        }
-        if (updatedDto.getTimeSlot() != null) {
-            appointmentToUpdate.setTimeSlot(updatedDto.getTimeSlot());
-        }
-    }
 }

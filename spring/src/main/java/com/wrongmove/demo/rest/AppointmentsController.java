@@ -35,10 +35,7 @@ public class AppointmentsController {
         return service.createAppointment(appointmentDto);
     }
 
-    @PatchMapping("/update/{id}")
-    public ResponseEntity<AppointmentsDto> updateAppointment(@PathVariable Integer id, @RequestBody AppointmentsDto updatedDto) {
-        return service.updateAppointment(id, updatedDto);
-    }
+
 
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<AppointmentsDto> removeAppointment(@PathVariable Integer id) {

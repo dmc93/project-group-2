@@ -33,12 +33,16 @@ public class Appointments {
         this.property = property;
     }
 
-    public Appointments(Integer id, String firstName, String surname, LocalDate date, String timeSlot) {
+
+
+    public Appointments(Integer id, String firstName, String surname, LocalDate date, String timeSlot, Buyer buyer, Property property) {
         this.id = id;
         this.firstName = firstName;
         this.surname = surname;
         this.date = date;
         this.timeSlot = timeSlot;
+        this.buyer = buyer;
+        this.property = property;
 
     }
 
