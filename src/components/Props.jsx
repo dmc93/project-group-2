@@ -17,17 +17,17 @@ function PropSeller() {
     const [deleteId, setDeleteId] = useState(null); // State to store the ID of the seller to be deleted
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
-    
+    const [details, setDetails] = useState([]);
 
     useEffect(() => {
 
         axios.get(`http://localhost:4495/property/${params.id}`)
             .then((response) => response.data)
-            .then((data) => { setUserProperties(data.properties); })
-            .then(() => console.log(userProperties))
+            .then((data) => { setDetails(data) })
+            .then(() => console.log(details))
             .catch((error) => console.error('Error:', error));
 
-    }, [userProperties]);
+    }, [details]);
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ function PropSeller() {
             <br></br>
             <div className='d-flex align-items-center justify-content-center' >
             <div className="propertyCard">   
-                    {userProperties.map((details) => (
+                    
             <ApptPropCard
                 street={details.street}
                 town={details.town}
@@ -60,7 +60,7 @@ function PropSeller() {
                 garden={details.garden}
                 imageUrl={details.imageUrl}
                 status={details.status}
-              />))}
+              />
             </div>
             </div>
 
