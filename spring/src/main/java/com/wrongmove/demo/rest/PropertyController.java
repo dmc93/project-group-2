@@ -34,10 +34,10 @@ public class PropertyController {
         return this.service.addProperty(property);
     }
 
-    @DeleteMapping("/property/remove/{id}")
-    public ResponseEntity<?> removeProperty(@PathVariable int id) {
-        return this.service.removeProperty(id);
-    }
+//    @DeleteMapping("/property/remove/{id}")
+//    public ResponseEntity<?> removeProperty(@PathVariable int id) {
+//        return this.service.removeProperty(id);
+//    }
 
     @PatchMapping("/property/update/{id}")
     public ResponseEntity<?> updateProperty(@PathVariable int id,

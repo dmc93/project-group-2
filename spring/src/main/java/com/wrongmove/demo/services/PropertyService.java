@@ -42,14 +42,14 @@ public class PropertyService {
         return new ResponseEntity<>(new PropertyDto(created), HttpStatus.CREATED);
     }
 
-    public ResponseEntity<?> removeProperty(int id){
-        Optional<Property> found = this.repo.findById(id);
-        if (found.isEmpty()) {
-            return new ResponseEntity<>("No Property found with ID " + id, HttpStatus.NOT_FOUND);
-        }
-        this.repo.deleteById(id);
-        return ResponseEntity.ok("Property with ID " + id +" has been deleted");
-    }
+//    public ResponseEntity<?> removeProperty(int id){
+//        Optional<Property> found = this.repo.findById(id);
+//        if (found.isEmpty()) {
+//            return new ResponseEntity<>("No Property found with ID " + id, HttpStatus.NOT_FOUND);
+//        }
+//        this.repo.deleteById(id);
+//        return ResponseEntity.ok("Property with ID " + id +" has been deleted");
+//    }
 
     public ResponseEntity<?> updateProperty(Integer id,
                                    String street,
