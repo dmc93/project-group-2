@@ -37,15 +37,14 @@ public class PropertyControllerTest {
         Seller seller = new Seller(1, "John", "Doe");
         Property newProperty = new Property(null, "Fourth Street", "London", 3, 2, "Yes", "http://example.com/image1.jpg", "For Sale", 400000, seller);
 
-        // Serialize Property object to JSON
+
         String newPropertyAsJson = this.mapper.writeValueAsString(newProperty);
 
-        // Mock the request
+
         RequestBuilder request = MockMvcRequestBuilders.post("/property/add")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(newPropertyAsJson);
 
-        // Define expected results
         ResultMatcher checkStatus = MockMvcResultMatchers.status().isCreated();
         ResultMatcher checkIdExists = MockMvcResultMatchers.jsonPath("$.id").exists();
         ResultMatcher checkStreet = MockMvcResultMatchers.jsonPath("$.street").value("Fourth Street");
@@ -57,7 +56,6 @@ public class PropertyControllerTest {
         ResultMatcher checkState = MockMvcResultMatchers.jsonPath("$.state").value("For Sale");
         ResultMatcher checkPrice = MockMvcResultMatchers.jsonPath("$.price").value(400000);
 
-        // Perform the request and validate
         mvc.perform(request)
                 .andExpect(checkStatus)
                 .andExpect(checkIdExists)
