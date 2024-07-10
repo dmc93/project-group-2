@@ -98,7 +98,7 @@ function JsonDataDisplay() {
             </div>
             {showConfirmation && (
                 <ConfirmationDialog
-                    message="Are you sure you want to delete this buyer?"
+                    message="Are you sure you want to delete this buyer? Removing this buyer will delete any associated appointments."
                     onConfirm={handleConfirm}
                     onCancel={handleCancel}
                 />
