@@ -13,8 +13,6 @@ CREATE TABLE `buyer` (
     `surname` VARCHAR(255) NOT NULL
   );
 
-
-
   CREATE TABLE `seller` (
       `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
       `firstname` VARCHAR(255) NOT NULL,

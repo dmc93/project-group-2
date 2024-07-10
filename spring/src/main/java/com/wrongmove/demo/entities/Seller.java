@@ -56,9 +56,9 @@ public class Seller {
         this.surname = surname;
     }
 
-    public Seller(List<Property> properties) {
-        this.properties = properties;
-    }
+//    public Seller(List<Property> properties) {
+//        this.properties = properties;
+//    }
 
     public void setProperties(List<Property> properties) {
         this.properties = properties;
