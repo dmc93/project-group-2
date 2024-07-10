@@ -22,7 +22,7 @@ public class Property {
     @ManyToOne
     private Seller seller;
 
-    @OneToMany(mappedBy="property")
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Appointments> appointments;
 
 
