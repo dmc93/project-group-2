@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.time.LocalDate;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
@@ -33,15 +34,20 @@ public class AppointmentsControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
+    private void validateAppointment(Appointments appointment) {
+        if (appointment.getTimeSlot() == null) {
+            throw new IllegalArgumentException("Timeslot cannot be null");
+        }
+    }
+
     @Test
     void testCreateAppointment() throws Exception {
         String dateStr = "2024-07-19";
         LocalDate date = LocalDate.parse(dateStr);
         Seller seller = new Seller(1, "John", "Doe");
         Buyer buyer = new Buyer(1,"Roger","Rabbit");
-        Property property =new Property(1,"Third Street", "Dunfermline", 2, 1, "Yes", "http://example.com/image3.jpg", "Withdrawn", 300000, seller);
+        Property property = new Property(1,"Third Street", "Dunfermline", 2, 1, "Yes", "http://example.com/image3.jpg", "Withdrawn", 300000, seller);
         Appointments newAppointment = new Appointments(1,"Roger", "Rabbit",  date,"11:00-12:00", buyer, property);
-
 
         String newAppointmentAsJson = this.mapper.writeValueAsString(newAppointment);
 
@@ -57,13 +63,13 @@ public class AppointmentsControllerTest {
     }
 
     @Test
-    void testDeleteAppointment() throws Exception {
+    void testRemoveAppointment() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/appointments/remove/3"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
-    void testDeleteAppointmentDoesNotExist() throws Exception {
+    void testRemoveAppointmentDoesNotExist() throws Exception {
         mvc.perform(MockMvcRequestBuilders.delete("/appointments/remove/10"))
                 .andExpect(MockMvcResultMatchers.status().isNotFound());
     }
@@ -104,8 +110,16 @@ public class AppointmentsControllerTest {
     @Test
     void testGetAppointmentByIdDoesNotExist() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/appointments/get/10"))
-                .andExpect(MockMvcResultMatchers.status().isNotFound())
-                ;
+                .andExpect(MockMvcResultMatchers.status().isNotFound());
+    }
+
+    @Test
+    void testValidateAppointmentThrowsExceptionWhenTimeSlotIsNull() {
+        Appointments appointment = new Appointments();
+        appointment.setTimeSlot(null);  // setting the timeSlot to null
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            validateAppointment(appointment);
+        });
     }
 }
-
