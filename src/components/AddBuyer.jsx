@@ -3,7 +3,7 @@ import axios from 'axios';
 import '../css/RegisterUser.css';
 import CustomAlert from "./CustomAlert";
 
-const AddBuyer = () => {
+const AddBuyer = ({onAddBuyer}) => {
     const [firstname, setFirstName] = useState('');
     const [surname, setSurname] = useState('');
     const [showAlert, setShowAlert] = useState(false);
@@ -67,6 +67,9 @@ const AddBuyer = () => {
 
             setFirstName('');
             setSurname('');
+
+            onAddBuyer(); // Trigger fetching new data
+
         } catch (error) {
             console.error('Error:', error);
         }
@@ -107,7 +110,7 @@ const AddBuyer = () => {
                         message={alertMessage}
                         onClose={() => {
                             setShowAlert(false);
-                            window.location.reload();
+//                             window.location.reload();
                         }}
                     />
                 )}

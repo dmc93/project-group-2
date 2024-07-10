@@ -4,25 +4,14 @@ import ConfirmationDialog from './ConfirmationDialog';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function JsonDataDisplay() {
+function JsonDataDisplay({buyer, onBuyerUpdate}) {
     const navigate = useNavigate();
     const [showConfirmation, setShowConfirmation] = useState(false);
     const [buyers, setBuyers] = useState([]);
     const [buyerIdToDelete, setBuyerIdToDelete] = useState(null);
     const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
 
-    useEffect(() => {
-        fetchData();
-    }, []);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:4495/buyer/get/all');
-            setBuyers(response.data);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    };
 
     const handleDelete = (id) => {
         setBuyerIdToDelete(id);
@@ -38,7 +27,8 @@ function JsonDataDisplay() {
         try {
             const response = await axios.delete(`http://localhost:4495/buyer/remove/${buyerIdToDelete}`);
             if (response.status === 200) {
-                setBuyers((prevBuyers) => prevBuyers.filter((buyer) => buyer.id !== buyerIdToDelete));
+                onBuyerUpdate(); // Trigger fetching new data in parent
+
                 console.log(`Buyer with ID ${buyerIdToDelete} successfully deleted.`);
             } else {
                 console.error('Failed to delete the buyer with ID:', buyerIdToDelete);
@@ -51,7 +41,7 @@ function JsonDataDisplay() {
         }
     };
 
-    const sortedBuyers = [...buyers].sort((a, b) => {
+    const sortedBuyers = [...buyer].sort((a, b) => {
         if (a[sortConfig.key] < b[sortConfig.key]) {
             return sortConfig.direction === 'ascending' ? -1 : 1;
         }
