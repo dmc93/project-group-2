@@ -12,7 +12,7 @@ public class Seller {
     private String firstname;
     private String surname;
 
-    @OneToMany(mappedBy = "seller")
+    @OneToMany(mappedBy = "seller", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Property> properties;
 
     //Required
